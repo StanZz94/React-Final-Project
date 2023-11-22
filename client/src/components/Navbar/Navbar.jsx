@@ -10,7 +10,7 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav mx-auto py-0">
-                <a href="index.html" className="nav-item nav-link active">Home</a>
+                <a href="/" className="nav-item nav-link active">Home</a>
                 <a href="about.html" className="nav-item nav-link">About us</a>
                 <a href="service.html" className="nav-item nav-link">Catalog</a>
                 <a href="product.html" className="nav-item nav-link">News</a>
