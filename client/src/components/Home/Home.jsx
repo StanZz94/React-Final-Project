@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom'
+
 export default function Home() {
-     const myStyle = {
-            'max-width': '900px',
-        };
+   
     return(
       <div>
         <div className="container-fluid p-0">
@@ -13,8 +13,8 @@ export default function Home() {
                         <div className="text-start p-5" style={{maxWidth: '900px'}}>
                             <h3 className="text-white">Organic Vegetables</h3>
                             <h1 className="display-1 text-white mb-md-4">Organic Vegetables For Healthy Life</h1>
-                            <a href="" className="btn btn-primary py-md-3 px-md-5 me-3">Explore</a>
-                            <a href="" className="btn btn-secondary py-md-3 px-md-5">Contact</a>
+                            <Link to="" className="btn btn-primary py-md-3 px-md-5 me-3">Explore</Link>
+                            <Link to="" className="btn btn-secondary py-md-3 px-md-5">Contact</Link>
                         </div>
                     </div>
                 </div>
@@ -24,8 +24,8 @@ export default function Home() {
                         <div className="text-start p-5" style={{maxWidth: '900px'}}>
                             <h3 className="text-white">Organic Fruits</h3>
                             <h1 className="display-1 text-white mb-md-4">Organic Fruits For Better Health</h1>
-                            <a href="" className="btn btn-primary py-md-3 px-md-5 me-3">Explore</a>
-                            <a href="" className="btn btn-secondary py-md-3 px-md-5">Contact</a>
+                            <Link to="" className="btn btn-primary py-md-3 px-md-5 me-3">Explore</Link>
+                            <Link to="" className="btn btn-secondary py-md-3 px-md-5">Contact</Link>
                         </div>
                     </div>
                 </div>
@@ -51,14 +51,14 @@ export default function Home() {
                     <div className="bg-primary bg-vegetable d-flex flex-column justify-content-center p-5" style={{height: '300px'}}>
                         <h3 className="text-white mb-3">Organic Vegetables</h3>
                         <p className="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
-                        <a className="text-white fw-bold" href="">Read More<i className="bi bi-arrow-right ms-2"></i></a>
+                        <Link className="text-white fw-bold" to="">Read More<i className="bi bi-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="bg-secondary bg-fruit d-flex flex-column justify-content-center p-5" style={{height: '300px'}}>
                         <h3 className="text-white mb-3">Organic Fruits</h3>
                         <p className="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
-                        <a className="text-white fw-bold" href="">Read More<i className="bi bi-arrow-right ms-2"></i></a>
+                        <Link className="text-white fw-bold" to="">Read More<i className="bi bi-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
             </div>
@@ -75,28 +75,28 @@ export default function Home() {
                 <div className="col-lg-4">
                     <div className="blog-item position-relative overflow-hidden">
                         <img className="img-fluid" src="img/blog-1.jpg" alt="" />
-                        <a className="blog-overlay" href="">
+                        <Link className="blog-overlay" to="">
                             <h4 className="text-white">Lorem elitr magna stet eirmod labore amet</h4>
                             <span className="text-white fw-bold">Jan 01, 2050</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-lg-4">
                     <div className="blog-item position-relative overflow-hidden">
                         <img className="img-fluid" src="img/blog-2.jpg" alt="" />
-                        <a className="blog-overlay" href="">
+                        <Link className="blog-overlay" to="">
                             <h4 className="text-white">Lorem elitr magna stet eirmod labore amet</h4>
                             <span className="text-white fw-bold">Jan 01, 2050</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-lg-4">
                     <div className="blog-item position-relative overflow-hidden">
                         <img className="img-fluid" src="img/blog-3.jpg" alt="" />
-                        <a class="blog-overlay" href="">
+                        <Link class="blog-overlay" to="">
                             <h4 className="text-white">Lorem elitr magna stet eirmod labore amet</h4>
                             <span className="text-white fw-bold">Jan 01, 2050</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

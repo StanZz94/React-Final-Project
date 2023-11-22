@@ -1,16 +1,18 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
   return (
     <div className="container-fluid bg-dark text-white py-4">
       <div className="container text-center">
         <p className="mb-0">
           &copy;{" "}
-          <a className="text-secondary fw-bold" href="#">
+          <Link className="text-secondary fw-bold" to="#">
             Green Blog
-          </a>
+          </Link>
           . All Rights Reserved. Designed by{" "}
-          <a className="text-secondary fw-bold" href="#">
+          <Link className="text-secondary fw-bold" to="#">
             StanZz94!
-          </a>
+          </Link>
         </p>
       </div>
     </div>
