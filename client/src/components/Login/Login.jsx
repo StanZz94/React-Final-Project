@@ -11,10 +11,12 @@ export default function Login() {
                         <form>
                             <div className="row g-3">
                                 <div className="col-12">
-                                    <input type="email" className="form-control bg-light border-0 px-4" placeholder="Email" style={{ height: "55px" }} />
+                                    <label htmlFor="email" style={{ color: "black" }}>Email:</label>
+                                    <input type="email" className="form-control bg-light border-0 px-4" placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <input type="password" className="form-control bg-light border-0 px-4" placeholder="Password" style={{ height: "55px" }} />
+                                    <label htmlFor="password" style={{ color: "black" }}>Password:</label>
+                                    <input type="password" className="form-control bg-light border-0 px-4" placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
                                     <button className="btn btn-secondary w-100 py-3" type="submit">Login</button>
