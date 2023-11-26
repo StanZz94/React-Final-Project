@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import * as postServices from "../../../services/postService"
 
 export default function News() {
+  const [posts, setPosts ] = useState([]);
+
+    useEffect(() => {
+        postServices.getAll()
+        .then(posts => setPosts(result))
+    }, [])
+
   return (
     <div className="container-fluid py-5">
       <h1 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>Welcome to our blog!</h1>
