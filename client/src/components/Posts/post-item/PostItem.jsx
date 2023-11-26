@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function NewsItem({
+    _id,
     title,
     imageUrl,
 
@@ -9,7 +10,7 @@ export default function NewsItem({
     <div className="col-md-4">
             <div className="blog-item position-relative overflow-hidden">
               <img className="img-fluid" src={imageUrl} alt="" />
-              <Link className="blog-overlay" to="">
+              <Link className="blog-overlay" to={`/posts/${_id}`}>
                 <h4 className="text-white">
                   {title}
                 </h4>

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import * as postServices from "../../../services/postService";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +11,7 @@ export default function Create() {
 
     try {
       await postServices.create(postData);
-      navigate("/news");
+      navigate("/posts");
     } catch (err) {
       console.log(err);
     }

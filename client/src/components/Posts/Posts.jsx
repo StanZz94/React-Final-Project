@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as postServices from "../../../services/postService"
-import NewsItem from "./news-item/NewsItem";
+import PostItem from "./post-item/PostItem";
 
-export default function News() {
+export default function Posts() {
   const [posts, setPosts ] = useState([]);
 
     useEffect(() => {
@@ -20,10 +20,10 @@ export default function News() {
 
 
          {posts.map(post => (
-          <NewsItem key={post._id} {...post}/>
+          <PostItem key={post._id} {...posts}/>
          ))}
 
-         {posts.length === 0 && <h3 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>There are no posts yet!</h3>}
+         {posts.length === 0 && <h3 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>There are no posts!</h3>}
 
           <div className="col-12">
             <nav aria-label="Page navigation">

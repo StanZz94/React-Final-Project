@@ -3,10 +3,11 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import About from './components/About/About';
-import News from './components/News/News';
+import Posts from './components/Posts/Posts';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Create from './components/Create/Create';
+import PostDetails from './components/PostDetails/PostDetails';
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/about' element={<About/>} />
-      <Route path='/news' element={<News/>} />
+      <Route path='/posts' element={<Posts/>} />
       <Route path='/register' element={<Register/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/create' element={<Create/>} />
+      <Route path='/posts/:postId' element={<PostDetails/>} />
     </Routes>
     <Footer/>
     </>

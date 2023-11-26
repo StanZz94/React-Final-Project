@@ -144,7 +144,7 @@ export default function Home() {
             <div className="col-lg-4">
               <div className="blog-item position-relative overflow-hidden">
                 <img className="img-fluid" src="img/blog-3.jpg" alt="" />
-                <Link class="blog-overlay" to="">
+                <Link className="blog-overlay" to="">
                   <h4 className="text-white">
                     Lorem elitr magna stet eirmod labore amet
                   </h4>
