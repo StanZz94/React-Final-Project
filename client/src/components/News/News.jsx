@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as postServices from "../../../services/postService"
+import NewsItem from "./news-item/NewsItem";
 
 export default function News() {
   const [posts, setPosts ] = useState([]);
 
     useEffect(() => {
         postServices.getAll()
-        .then(posts => setPosts(result))
+        .then(result => setPosts(result))
     }, [])
 
   return (
@@ -16,39 +17,13 @@ export default function News() {
       <div className="container">
         {/* Blog list Start  */}
         <div className="row g-5">
-          <div className="col-md-4">
-            <div className="blog-item position-relative overflow-hidden">
-              <img className="img-fluid" src="img/blog-1.jpg" alt="" />
-              <Link className="blog-overlay" to="">
-                <h4 className="text-white">
-                  Lorem elitr magna stet eirmod labore amet
-                </h4>
-                <span className="text-white fw-bold">Jan 01, 2050</span>
-              </Link>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="blog-item position-relative overflow-hidden">
-              <img className="img-fluid" src="img/blog-2.jpg" alt="" />
-              <Link className="blog-overlay" to="">
-                <h4 className="text-white">
-                  Lorem elitr magna stet eirmod labore amet
-                </h4>
-                <span className="text-white fw-bold">Jan 01, 2050</span>
-              </Link>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="blog-item position-relative overflow-hidden">
-              <img className="img-fluid" src="img/blog-3.jpg" alt="" />
-              <Link className="blog-overlay" to="">
-                <h4 className="text-white">
-                  Lorem elitr magna stet eirmod labore amet
-                </h4>
-                <span className="text-white fw-bold">Jan 01, 2050</span>
-              </Link>
-            </div>
-          </div>
+
+
+         {posts.map(post => (
+          <NewsItem key={post._id} {...post}/>
+         ))}
+
+         {posts.length === 0 && <h3 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>There are no posts yet!</h3>}
 
           <div className="col-12">
             <nav aria-label="Page navigation">
