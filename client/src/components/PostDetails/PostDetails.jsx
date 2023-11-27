@@ -11,7 +11,7 @@ export default function PostDetails() {
     },[postId]);
 
   return (
-    <div className="mb-5">
+    <div className="col-lg-8">
       <div className="row g-5 mb-5">
         <div className="col-md-6">
           <img className="img-fluid w-100" src={post.imageUrl} alt="" />

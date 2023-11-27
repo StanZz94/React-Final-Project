@@ -20,7 +20,7 @@ export default function Posts() {
 
 
          {posts.map(post => (
-          <PostItem key={post._id} {...posts}/>
+          <PostItem key={post._id} {...post}/>
          ))}
 
          {posts.length === 0 && <h3 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>There are no posts!</h3>}
