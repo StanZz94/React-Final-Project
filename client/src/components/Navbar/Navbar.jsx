@@ -15,7 +15,7 @@ export default function Navbar() {
               Catalog
             </Link>
             <Link to="/posts" className="nav-item nav-link">
-              News
+              Posts
             </Link>
             <Link to="/create" className="nav-item nav-link">
               Create Post

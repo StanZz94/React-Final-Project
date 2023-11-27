@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import * as postServices from "../../../services/postService"
+import * as postService from "../../../services/postService"
 import PostItem from "./post-item/PostItem";
 
 export default function Posts() {
   const [posts, setPosts ] = useState([]);
 
     useEffect(() => {
-        postServices.getAll()
-        .then(result => setPosts(result))
-    }, [])
+        postService.getAll()
+        .then(result => setPosts(result));
+    }, []);
 
   return (
     <div className="container-fluid py-5">

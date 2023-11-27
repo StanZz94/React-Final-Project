@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import * as postService from "../../../services/postService"
 
 export default function PostDetails() {
-    const { post, setPost } = useState([]);
+    const [ post, setPost ] = useState({});
     const { postId } = useParams();
     useEffect(()=>{
         postService.getOne(postId)

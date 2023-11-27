@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function NewsItem({
+export default function PostItem({
     _id,
     title,
     imageUrl,
-
 }){
  return(
     <div className="col-md-4">
