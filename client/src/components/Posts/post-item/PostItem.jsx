@@ -13,7 +13,7 @@ export default function PostItem({
                 <h4 className="text-white">
                   {title}
                 </h4>
-                <span className="text-white fw-bold">data</span>
+                <span className="text-white fw-bold">Author</span>
               </Link>
             </div>
           </div>

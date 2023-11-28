@@ -5,7 +5,7 @@ export default function Login() {
     <div className="container-fluid py-5">
         <div className="container">
             <div className="mx-auto text-center mb-5" style={{ maxWidth: "600px" }}>
-                <h1 className="display-5">Register</h1>
+                <h1 className="display-5">Login</h1>
 
                 <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px" }}>
                         <form>
@@ -20,6 +20,9 @@ export default function Login() {
                                 </div>
                                 <div className="col-12">
                                     <button className="btn btn-secondary w-100 py-3" type="submit">Login</button>
+                                </div>
+                                <div className="col-12">
+                                    <p style={{ color: "black", floaf: 'left'}}>If you are not registered click <Link to={'/register'} style={{ color: "blue"}}>HERE</Link>!</p>
                                 </div>
                             </div>
                         </form>
