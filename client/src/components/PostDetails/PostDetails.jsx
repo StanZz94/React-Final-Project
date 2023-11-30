@@ -28,46 +28,27 @@ export default function PostDetails() {
                 {/**<!-- Blog Detail End -->*/}
 
                 {/**<!-- Comment List Start -->*/}
-                {/**<div class="mb-5">
+                <div class="mb-5">
                     <h2 class="mb-4">3 Comments</h2>
                     <div class="d-flex mb-4">
-                        <img src="img/user.jpg" class="img-fluid" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
+                        <img src="img/user.jpg" className="img-fluid" style="width: 45px; height: 45px;" />
+                        <div className="ps-3">
+                            <h6><Link href="">John Doe</Link> <small><i>01 Jan 2045</i></small></h6>
                             <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
                                 accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                            <button class="btn btn-sm btn-primary">Reply</button>
                         </div>
                     </div>
-                    <div class="d-flex mb-4">
-                        <img src="img/user.jpg" class="img-fluid" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                            <button class="btn btn-sm btn-primary">Reply</button>
-                        </div>
-                    </div>
-                    <div class="d-flex ms-5 mb-4">
-                        <img src="img/user.jpg" class="img-fluid" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                            <button class="btn btn-sm btn-primary">Reply</button>
-                        </div>
-                    </div>
-                </div>*/}
+                </div>
                 {/**<!-- Comment List End -->*/}
 
                 {/**<!-- Comment Form Start -->*/}
                 <div className="bg-primary p-5">
                     <h2 className="text-white mb-4">Leave a comment</h2>
-                    <form>
+                    <form onClick="">
                         <div className="row g-3">
                             <div className="col-12">
                                 <label htmlFor="comment" style={{ color: "black" }}>Comment:</label>
-                                <input type="text" className="form-control bg-white border-0" placeholder="Website" style={{height: "55px;"}} />
+                                <textarea className="form-control bg-white border-0" rows="5" placeholder="Comment"></textarea>
                             </div>
                             <div className="col-12">
                                 <button className="btn btn-secondary w-100 py-3" type="submit">Publish</button>
