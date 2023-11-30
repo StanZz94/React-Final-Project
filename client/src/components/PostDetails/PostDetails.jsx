@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import * as postService from "../../../services/postService"
 
 export default function PostDetails() {
@@ -31,7 +32,7 @@ export default function PostDetails() {
                 <div class="mb-5">
                     <h2 class="mb-4">3 Comments</h2>
                     <div class="d-flex mb-4">
-                        <img src="img/user.jpg" className="img-fluid" style="width: 45px; height: 45px;" />
+                        <img src="img/user.jpg" className="img-fluid" style={{width: "45px;", height: "45px;"}} />
                         <div className="ps-3">
                             <h6><Link href="">John Doe</Link> <small><i>01 Jan 2045</i></small></h6>
                             <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
@@ -48,7 +49,7 @@ export default function PostDetails() {
                         <div className="row g-3">
                             <div className="col-12">
                                 <label htmlFor="comment" style={{ color: "black" }}>Comment:</label>
-                                <textarea className="form-control bg-white border-0" rows="5" placeholder="Comment"></textarea>
+                                <textarea className="form-control bg-white border-0" rows="5" placeholder=""></textarea>
                             </div>
                             <div className="col-12">
                                 <button className="btn btn-secondary w-100 py-3" type="submit">Publish</button>
