@@ -13,7 +13,8 @@ export default function Posts() {
 
   return (
     <div className="container-fluid py-5">
-      <h1 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>Welcome to our blog!</h1>
+      <h1 style={{color: 'green', textAlign: 'center', marginBottom: '20px'}}>Welcome to our blog!</h1>
+      <h2 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>Learn tips and tricks from one of the best farmers!</h2>
       <div className="container">
         {/* Blog list Start  */}
         <div className="row g-5">

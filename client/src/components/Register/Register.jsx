@@ -29,7 +29,7 @@ export default function Register() {
                                     <button className="btn btn-secondary w-100 py-3" type="submit">Register</button>
                                 </div>
                                 <div className="col-12">
-                                    <p style={{ color: "black"}}>Already registered? Click <Link to={'/register'} style={{ color: "blue"}}>HERE</Link>!</p>
+                                    <p style={{ color: "black"}}>Already registered? Click <Link to={'/login'} style={{ color: "blue"}}>HERE</Link>!</p>
                                 </div>
                             </div>
                         </form>
