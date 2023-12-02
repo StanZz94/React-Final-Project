@@ -8,8 +8,16 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Create from './components/Create/Create';
 import PostDetails from './components/PostDetails/PostDetails';
+import { useState } from 'react';
 
 function App() {
+
+  const [ auth, setAuth ] = useState({}); 
+
+  const loginSubmitHandler = (values) => {
+    console.log(values);
+  }
+
   return (
     <>
     <Navbar />
@@ -18,7 +26,7 @@ function App() {
       <Route path='/about' element={<About/>} />
       <Route path='/posts' element={<Posts/>} />
       <Route path='/register' element={<Register/>} />
-      <Route path='/login' element={<Login/>} />
+      <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} />
       <Route path='/create' element={<Create/>} />
       <Route path='/posts/:postId' element={<PostDetails/>} />
     </Routes>

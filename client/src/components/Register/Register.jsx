@@ -11,10 +11,12 @@ export default function Register() {
                         <form>
                             <div className="row g-3">
                                 <div className="col-12">
-                                    <input type="text" className="form-control bg-light border-0 px-4" placeholder="Name" style={{ height: "55px" }} />
+                                    <label htmlFor="name" style={{ color: "black", float: 'left' }}>Name:</label>
+                                    <input type="text" className="form-control bg-light border-0 px-4" placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <input type="text" className="form-control bg-light border-0 px-4" placeholder="Last Name" style={{ height: "55px" }} />
+                                <label htmlFor="lastName" style={{ color: "black", float: 'left' }}>Last Name:</label>
+                                    <input type="text" className="form-control bg-light border-0 px-4" placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
                                     <input type="email" className="form-control bg-light border-0 px-4" placeholder="Email" style={{ height: "55px" }} />
@@ -29,7 +31,7 @@ export default function Register() {
                                     <button className="btn btn-secondary w-100 py-3" type="submit">Register</button>
                                 </div>
                                 <div className="col-12">
-                                    <p style={{ color: "black"}}>Already registered? Click <Link to={'/login'} style={{ color: "blue"}}>HERE</Link>!</p>
+                                    <p style={{ color: "black", float: 'left'}}>Already registered? Click <Link to={'/login'} style={{ color: "blue"}}>HERE</Link>!</p>
                                 </div>
                             </div>
                         </form>
