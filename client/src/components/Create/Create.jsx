@@ -1,4 +1,4 @@
-import * as postServices from "../../../services/postService";
+import * as postServices from "../../services/postService";
 import { useNavigate } from "react-router-dom";
 
 export default function Create() {

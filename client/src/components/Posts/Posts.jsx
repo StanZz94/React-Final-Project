@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import * as postService from "../../../services/postService"
+import * as postService from "../../services/postService"
 import PostItem from "./post-item/PostItem";
 
 export default function Posts() {
