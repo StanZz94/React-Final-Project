@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
@@ -9,13 +9,20 @@ import Login from "./components/Login/Login";
 import Create from "./components/Create/Create";
 import PostDetails from "./components/PostDetails/PostDetails";
 import { useState } from "react";
-import { AuthContext } from "./contexts/authContext";
+import  AuthContext  from "./contexts/authContext";
+import * as authService from "./services/authService";
+import Path from "./paths";
 
 function App() {
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-    console.log(values);
+  const loginSubmitHandler = async (values) => {
+    const result = await authService.login(values.email, values.password);
+
+    setAuth(result);
+
+    navigate(Path.Home);
   };
 
   return (
