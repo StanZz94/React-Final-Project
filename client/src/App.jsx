@@ -40,7 +40,7 @@ function App() {
         </Routes>
         <Footer />
       </>
-    </AuthContext.Provider>
+    </AuthContext.Provider> 
   );
 }
 
