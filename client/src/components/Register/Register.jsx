@@ -1,6 +1,27 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
+import useForm from "../../hooks/useForm";
+
+const RegisterFormKeys = {
+    Name: 'name',
+    LastName: 'lastName',
+    Email: 'email',
+    Password: 'password',
+    RepeatPassword: 'repeatPassword',
+}
 
 export default function Register() {
+
+    const { registerSubmitHandler } = useContext(AuthContext);
+
+    const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
+        [RegisterFormKeys.Name]: '',
+        [RegisterFormKeys.LastName]: '',
+        [RegisterFormKeys.Email]: '',
+        [RegisterFormKeys.Password]: '',
+    })
+
   return (
     <div className="container-fluid py-5">
         <div className="container">
@@ -8,24 +29,27 @@ export default function Register() {
                 <h1 className="display-5">Register</h1>
 
                 <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px" }}>
-                        <form>
+                        <form onSubmit={onSubmit}>
                             <div className="row g-3">
                                 <div className="col-12">
                                     <label htmlFor="name" style={{ color: "black", float: 'left' }}>Name:</label>
-                                    <input type="text" className="form-control bg-light border-0 px-4" placeholder="" style={{ height: "55px" }} />
+                                    <input type="text" name="name" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
                                 <label htmlFor="lastName" style={{ color: "black", float: 'left' }}>Last Name:</label>
-                                    <input type="text" className="form-control bg-light border-0 px-4" placeholder="" style={{ height: "55px" }} />
+                                    <input type="text" name="lastName" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <input type="email" className="form-control bg-light border-0 px-4" placeholder="Email" style={{ height: "55px" }} />
+                                <label htmlFor="email" style={{ color: "black", float: 'left' }}>Email:</label>
+                                    <input type="email" name="email" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <input type="password" className="form-control bg-light border-0 px-4" placeholder="Password" style={{ height: "55px" }} />
+                                <label htmlFor="password" style={{ color: "black", float: 'left' }}>Password:</label>
+                                    <input type="password" name="password" className="form-control bg-light border-0 px-4" onChange={onChange} placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <input type="password" className="form-control bg-light border-0 px-4" placeholder="Repeat Password" style={{ height: "55px" }} />
+                                <label htmlFor="repeatPassword" style={{ color: "black", float: 'left' }}>Repeat Password:</label>
+                                    <input type="password" name="repeatPassword" className="form-control bg-light border-0 px-4" onChange={onChange} placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
                                     <button className="btn btn-secondary w-100 py-3" type="submit">Register</button>
