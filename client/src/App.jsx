@@ -1,4 +1,11 @@
+
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+import  AuthContext  from "./contexts/authContext";
+import * as authService from "./services/authService";
+import Path from "./paths";
+
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
@@ -6,21 +13,26 @@ import About from "./components/About/About";
 import Posts from "./components/Posts/Posts";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import Logout from "./components/Logout/Logout";
 import Create from "./components/Create/Create";
 import PostDetails from "./components/PostDetails/PostDetails";
-import { useState } from "react";
-import  AuthContext  from "./contexts/authContext";
-import * as authService from "./services/authService";
-import Path from "./paths";
+
 
 function App() {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useState(() => {
+
+    localStorage.removeItem("accessToken");
+
+    return {};
+  });
 
   const loginSubmitHandler = async (values) => {
     const result = await authService.login(values.email, values.password);
 
     setAuth(result);
+
+    localStorage.setItem('accessToken', result.accessToken);
 
     navigate(Path.Home);
   };
@@ -30,12 +42,21 @@ function App() {
 
     setAuth(result);
 
+    localStorage.setItem('accessToken', result.accessToken);
+
     navigate(Path.Home);
+  };
+
+  const logoutHandler = () => {
+    setAuth({});
+
+    localStorage.removeItem('accessToken');
   };
 
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     name: auth.name,
     lastName: auth.lastName,
     email: auth.email,
@@ -47,13 +68,14 @@ function App() {
       <>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />}/>
-          <Route path="/create" element={<Create />} />
-          <Route path="/posts/:postId" element={<PostDetails />} />
+          <Route path={Path.Home} element={<Home />} />
+          <Route path={Path.About} element={<About />} />
+          <Route path={Path.Posts} element={<Posts />} />
+          <Route path={Path.Register} element={<Register />} />
+          <Route path={Path.Login} element={<Login />}/>
+          <Route path={Path.Create} element={<Create />} />
+          <Route path={Path.PostDetails} element={<PostDetails />} />
+          <Route path={Path.Logout} element={<Logout />} />
         </Routes>
         <Footer />
       </>
