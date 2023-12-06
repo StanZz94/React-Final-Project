@@ -51,6 +51,7 @@ function App() {
     setAuth({});
 
     localStorage.removeItem('accessToken');
+    navigate(Path.Home);
   };
 
   const values = {

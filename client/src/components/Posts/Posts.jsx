@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import * as postService from "../../services/postService"
+import AuthContext from "../../contexts/authContext";
 import PostItem from "./post-item/PostItem";
 
 export default function Posts() {
+
+  const { isAuthenticated, name, lastName} = useContext(AuthContext);
+
   const [posts, setPosts ] = useState([]);
 
     useEffect(() => {

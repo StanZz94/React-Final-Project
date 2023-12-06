@@ -5,6 +5,7 @@ export default function PostItem({
     title,
     imageUrl,
 }){
+  
  return(
     <div className="col-md-4">
             <div className="blog-item position-relative overflow-hidden">
