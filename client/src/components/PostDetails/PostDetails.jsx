@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
 import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentsService";
 
 export default function PostDetails() {
+  const { isAuthenticated, name, lastName} = useContext(AuthContext);
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
@@ -78,6 +80,7 @@ export default function PostDetails() {
         {/**<!-- Comment List End -->*/}
 
         {/**<!-- Comment Form Start -->*/}
+        {isAuthenticated && 
         <div className="bg-primary p-5">
           <h2 className="text-white mb-4">Leave a comment</h2>
           <form onSubmit={addCommentHandler}>
@@ -100,7 +103,7 @@ export default function PostDetails() {
               </div>
             </div>
           </form>
-        </div>
+        </div>}
         {/**<!-- Comment Form End -->*/}
       </div>
     </div>
