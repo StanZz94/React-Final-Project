@@ -6,7 +6,7 @@ import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentsService";
 
 export default function PostDetails() {
-  const { isAuthenticated, name, lastName} = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
@@ -24,7 +24,9 @@ export default function PostDetails() {
 
     const newComment = await commentsService.create(
       postId,
-      formData.get("comment")
+      post.name,
+      post.lastName,
+      formData.get("comment"),
     );
 
     setComments((state) => [...state, newComment]);
@@ -39,7 +41,7 @@ export default function PostDetails() {
           <div className="row g-5 mb-5">
             <div className="col-md-6">
               <div>
-                <img className="img-fluid w-100" src={post.imageUrl} alt="" />
+                <img className="img-fluid w-100" src={post.imageUrl} style={{borderRadius: "100px"}} alt="" />
               </div>
             </div>
             {/** <div class="col-md-6"> 
@@ -47,7 +49,8 @@ export default function PostDetails() {
                         </div>*/}
           </div>
           <h1 className="mb-4">{post.title}</h1>
-          <p style={{ color: "black" }}>{post.myPost}</p>
+          <b><p style={{ color: "black" }}>Author: {post.name} {post.lastName}</p></b>
+          <b><p style={{ color: "black" }}>{post.myPost}</p></b>
         </div>
         {/**<!-- Blog Detail End -->*/}
 
@@ -81,7 +84,7 @@ export default function PostDetails() {
 
         {/**<!-- Comment Form Start -->*/}
         {isAuthenticated && 
-        <div className="bg-primary p-5">
+        <div className="bg-primary p-5" style={{borderRadius: "20px"}}>
           <h2 className="text-white mb-4">Leave a comment</h2>
           <form onSubmit={addCommentHandler}>
             <div className="row g-3">
@@ -97,7 +100,7 @@ export default function PostDetails() {
                 ></textarea>
               </div>
               <div className="col-12">
-                <button className="btn btn-secondary w-100 py-3" type="submit">
+                <button className="btn btn-secondary w-100 py-3" style={{marginTop: "30px" ,borderRadius: "20px"}} type="submit">
                   Publish
                 </button>
               </div>

@@ -13,10 +13,10 @@ export default function Login() {
   return (
     <div className="container-fluid py-5">
         <div className="container">
-            <div className="mx-auto text-center mb-5" style={{ maxWidth: "600px" }}>
+            <div className="mx-auto text-center mb-5" style={{ maxWidth: "600px"}}>
                 <h1 className="display-5">Login</h1>
 
-                <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px" }}>
+                <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px", borderRadius: "20px"}}>
                         <form onSubmit={onSubmit}>
                             <div className="row g-3">
                                 <div className="col-12">
@@ -40,7 +40,7 @@ export default function Login() {
                                     style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <button className="btn btn-secondary w-100 py-3" type="submit">Login</button>
+                                    <button className="btn btn-secondary w-100 py-3" style={{marginTop: "30px" ,borderRadius: "20px"}} type="submit">Login</button>
                                 </div>
                                 <div className="col-12">
                                     <p style={{ color: "black", float: 'left'}}>If you are not registered click <Link to={'/register'} style={{ color: "blue"}}>HERE</Link>!</p>

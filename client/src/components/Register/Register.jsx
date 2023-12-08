@@ -28,7 +28,7 @@ export default function Register() {
             <div className="mx-auto text-center mb-5" style={{ maxWidth: "600px" }}>
                 <h1 className="display-5">Register</h1>
 
-                <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px" }}>
+                <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px", borderRadius: "20px" }}>
                         <form onSubmit={onSubmit}>
                             <div className="row g-3">
                                 <div className="col-12">
@@ -52,7 +52,7 @@ export default function Register() {
                                     <input type="password" name="repeatPassword" className="form-control bg-light border-0 px-4" onChange={onChange} placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <button className="btn btn-secondary w-100 py-3" type="submit">Register</button>
+                                    <button className="btn btn-secondary w-100 py-3" style={{marginTop: "50px"}} type="submit">Register</button>
                                 </div>
                                 <div className="col-12">
                                     <p style={{ color: "black", float: 'left'}}>Already registered? Click <Link to={'/login'} style={{ color: "blue"}}>HERE</Link>!</p>

@@ -1,13 +1,17 @@
 import * as postServices from "../../services/postService";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
+import { useContext } from "react";
 
 export default function Create() {
+  const { name, lastName} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const createPostSubmitHandler = async (e) => {
     e.preventDefault();
     const postData = Object.fromEntries(new FormData(e.currentTarget));
-    console.log(postData);
+    postData.name = name;
+    postData.lastName = lastName;
 
     try {
       await postServices.create(postData);

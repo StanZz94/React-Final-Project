@@ -13,10 +13,12 @@ export const getAll = async (postId) => {
     return result;
 };
 
-export const create = async (postId, comment) => {
+export const create = async (postId, comment, name, lastName) => {
     const newComment = await request.post(baseUrl, {
         postId,
         comment,
+        name,
+        lastName,
     });
 
     return newComment;

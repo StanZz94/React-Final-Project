@@ -4,6 +4,8 @@ export default function PostItem({
     _id,
     title,
     imageUrl,
+    name,
+    lastName
 }){
   
  return(
@@ -14,7 +16,7 @@ export default function PostItem({
                 <h4 className="text-white">
                   {title}
                 </h4>
-                <span className="text-white fw-bold">Author</span>
+                <span className="text-white fw-bold">Author: {name} {lastName}</span>
               </Link>
             </div>
           </div>
