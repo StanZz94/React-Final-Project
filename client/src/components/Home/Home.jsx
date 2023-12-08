@@ -4,11 +4,11 @@ import Path from "../../paths";
 export default function Home() {
   return (
     <div>
-    <div className="container-fluid bg-testimonial py-5 my-5" style={{ width: "auto",height: "600px",marginTop: '-25px'}}>
+    <div className="container-fluid bg-testimonial py-5 my-5" style={{ width: "auto",height: "600px"}}>
         <div className="container py-5">
             <div className="row justify-content-center">
                 <div className="" style={{backgroundColor: ' #198a2e', borderRadius: "20px", width:'500px'}}>
-                   <h1 style={{textAlign: "center", color: "#ffad00", fontFamily: "cursive"}}>Welcome To Our<br/> GREEN Forum !</h1>
+                   <h1 style={{textAlign: "center", color: "#FF9933", fontFamily: "cursive"}}>Welcome To Our<br/> GREEN Forum !</h1>
                 </div>
             </div>
         </div>

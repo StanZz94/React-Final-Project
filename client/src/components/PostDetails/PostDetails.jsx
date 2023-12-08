@@ -44,28 +44,19 @@ export default function PostDetails() {
                 <img className="img-fluid w-100" src={post.imageUrl} style={{borderRadius: "100px"}} alt="" />
               </div>
             </div>
-            {/** <div class="col-md-6"> 
-                            <img class="img-fluid w-100" src="img/blog-2.jpg" alt="" />
-                        </div>*/}
-          </div>
-          <h1 className="mb-4">{post.title}</h1>
-          <b><p style={{ color: "black" }}>Author: {post.name} {post.lastName}</p></b>
-          <b><p style={{ color: "black" }}>{post.myPost}</p></b>
-        </div>
-        {/**<!-- Blog Detail End -->*/}
-
-        {/**<!-- Comment List Start -->*/}
-        <div className="mb-5">
-          {comments.length === 0 && <h2 className="mb-4">No Comments</h2>}
+             <div className="col-md-6"> 
+             <div className="mb-5">
+              <h1 style={{textAlign: "center"}}> Comments:</h1>
+          {comments.length === 0 && <h3 className="mb-4" style={{textAlign: "center"}}>No Comments !</h3>}
 
             {comments.map(({_id, comment, owner: {name, lastName}}) => {
-                <div key={_id} className="d-flex mb-4">
+               
               <div
                 style={{
                   border: "5px solid green",
                   borderRadius: "5px",
                   padding: "10px",
-                }}
+                }} key={_id}
               >
                 <div className="ps-3">
                   <h6>
@@ -77,10 +68,16 @@ export default function PostDetails() {
                   <p style={{ color: "black" }}>{comment}</p>
                 </div>
               </div>
-              </div>
             })}
+        </div>       
+              </div>
+          </div>
+          <h1 className="mb-4">{post.title}</h1>
+          <b><p style={{ color: "black" }}>Author: {post.name} {post.lastName}</p></b>
+          <b><p style={{ color: "black" }}>{post.myPost}</p></b>
         </div>
-        {/**<!-- Comment List End -->*/}
+        {/**<!-- Blog Detail End -->*/}
+
 
         {/**<!-- Comment Form Start -->*/}
         {isAuthenticated && 
