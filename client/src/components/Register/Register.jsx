@@ -32,30 +32,30 @@ export default function Register() {
                         <form onSubmit={onSubmit}>
                             <div className="row g-3">
                                 <div className="col-12">
-                                    <label htmlFor="name" style={{ color: "black", float: 'left' }}>Name:</label>
+                                    <label htmlFor="name" style={{ color: "black"}}>Name:</label>
                                     <input type="text" name="name" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                <label htmlFor="lastName" style={{ color: "black", float: 'left' }}>Last Name:</label>
+                                <label htmlFor="lastName" style={{ color: "black"}}>Last Name:</label>
                                     <input type="text" name="lastName" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                <label htmlFor="email" style={{ color: "black", float: 'left' }}>Email:</label>
+                                <label htmlFor="email" style={{ color: "black"}}>Email:</label>
                                     <input type="email" name="email" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                <label htmlFor="password" style={{ color: "black", float: 'left' }}>Password:</label>
+                                <label htmlFor="password" style={{ color: "black"}}>Password:</label>
                                     <input type="password" name="password" className="form-control bg-light border-0 px-4" onChange={onChange} placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                <label htmlFor="repeatPassword" style={{ color: "black", float: 'left' }}>Repeat Password:</label>
+                                <label htmlFor="repeatPassword" style={{ color: "black"}}>Repeat Password:</label>
                                     <input type="password" name="repeatPassword" className="form-control bg-light border-0 px-4" onChange={onChange} placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <button className="btn btn-secondary w-100 py-3" style={{marginTop: "50px"}} type="submit">Register</button>
+                                    <button className="btn btn-secondary w-100 py-3" style={{marginTop: "30px", borderRadius: "20px"}} type="submit">Register</button>
                                 </div>
                                 <div className="col-12">
-                                    <p style={{ color: "black", float: 'left'}}>Already registered? Click <Link to={'/login'} style={{ color: "blue"}}>HERE</Link>!</p>
+                                    <p style={{ color: "black", float: 'left', marginTop: "20px"}}>Already registered? Click <Link to={'/login'} style={{ color: "blue"}}>HERE</Link>!</p>
                                 </div>
                             </div>
                         </form>

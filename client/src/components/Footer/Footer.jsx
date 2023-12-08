@@ -9,7 +9,7 @@ export default function Footer() {
           <Link className="text-secondary fw-bold" to="#">
             Green Blog
           </Link>
-          . All Rights Reserved. Designed by{" "}
+          . SoftUni ReactJS Final Project. Created by{" "}
           <Link className="text-secondary fw-bold" to="#">
             StanZz94!
           </Link>

@@ -27,7 +27,7 @@ export default function Create() {
         <div className="mx-auto text-center mb-5" style={{ maxWidth: "600px" }}>
           <h1 className="display-5">Create Post</h1>
 
-          <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px" }}>
+          <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px", marginTop: "50px" ,borderRadius: "20px" }}>
             <form onSubmit={createPostSubmitHandler}>
               <div className="row g-3">
                 <div className="col-12">
@@ -74,6 +74,7 @@ export default function Create() {
                     className="btn btn-secondary w-100 py-3"
                     type="submit"
                     value="Post"
+                    style={{marginTop: "30px" ,borderRadius: "20px"}}
                   />
                 </div>
               </div>
