@@ -1,6 +1,6 @@
 import * as postServices from "../../services/postService";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../../contexts/authContext";
+import {AuthContext} from "../../contexts/authContext";
 import { useContext } from "react";
 
 export default function Create() {
