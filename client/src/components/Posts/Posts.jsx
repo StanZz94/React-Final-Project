@@ -12,7 +12,10 @@ export default function Posts() {
 
     useEffect(() => {
         postService.getAll()
-        .then(result => setPosts(result));
+        .then(result => setPosts(result))
+        .catch((err) => {
+          console.log(err)
+        })
     }, []);
 
   return (
