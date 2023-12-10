@@ -15,7 +15,7 @@ export default function PostDetails() {
     postService.getOne(postId).then(setPost);
 
     commentsService.getAll(postId).then(setComments);
-  }, [postId]);
+  }, [postId]); 
 
   const addCommentHandler = async (e) => {
     e.preventDefault();
@@ -55,6 +55,7 @@ export default function PostDetails() {
                 <h1 className="mb-4" style={{ color: "green" }}>
                   {post.title}
                 </h1>
+                <hr/>
                 <b>
                   <p style={{ color: "black" }}>
                     Author: {post.name} {post.lastName}
@@ -69,37 +70,8 @@ export default function PostDetails() {
             </div>
           </div>
 
-          {isAuthenticated && (
-            <div className="bg-primary p-5" style={{ borderRadius: "20px" }}>
-              <h2 className="text-white mb-4">Leave a comment</h2>
-              <form onSubmit={addCommentHandler}>
-                <div className="row g-3">
-                  <div className="col-12">
-                    <label htmlFor="comment" style={{ color: "black" }}>
-                      Comment:
-                    </label>
-                    <textarea
-                      className="form-control bg-white border-0"
-                      name="comment"
-                      rows="5"
-                      placeholder=""
-                    ></textarea>
-                  </div>
-                  <div className="col-12">
-                    <button
-                      className="btn btn-secondary w-100 py-3"
-                      style={{ marginTop: "30px", borderRadius: "20px" }}
-                      type="submit"
-                    >
-                      Publish
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          )}
         </div>
-
+        <hr />
         <h1 style={{ textAlign: "center" }}> Comments:</h1>
         {comments.length === 0 && (
           <h5 className="mb-4" style={{ textAlign: "center" }}>
@@ -127,10 +99,40 @@ export default function PostDetails() {
                   <i></i>
                 </small>
               </h6>
-              <p style={{ color: "black" }}>{comment}</p>
+              <span style={{ color: "black", overflowWrap: "break-word" }}>{comment}</span>
             </div>
           </div>
         ))}
+
+{isAuthenticated && (
+            <div className="bg-primary p-5" style={{ borderRadius: "20px", marginTop: "35px"}}>
+              <h2 className="text-white mb-4">Leave a comment</h2>
+              <form onSubmit={addCommentHandler}>
+                <div className="row g-3">
+                  <div className="col-12">
+                    <label htmlFor="comment" style={{ color: "black" }}>
+                      Comment:
+                    </label>
+                    <textarea
+                      className="form-control bg-white border-0"
+                      name="comment"
+                      rows="5"
+                      placeholder=""
+                    ></textarea>
+                  </div>
+                  <div className="col-12">
+                    <button
+                      className="btn btn-secondary w-100 py-3"
+                      style={{ marginTop: "30px", borderRadius: "20px" }}
+                      type="submit"
+                    >
+                      Publish
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          )}
       </div>
     </div>
   );
