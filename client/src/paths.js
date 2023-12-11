@@ -7,6 +7,7 @@ const Path = {
     Login: '/login',
     Create: '/create',
     PostDetails: '/posts/:postId',
+    WildCard: '*',
 
 };
 

@@ -13,7 +13,6 @@ export default function Navbar() {
   }
 
   return (
-    <>
       <nav className="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
         <div className="navbar-nav mx-auto py-0">
           <Link onClick={activeHandler} to={Path.Home} className="nav-item nav-link tab">
@@ -50,6 +49,5 @@ export default function Navbar() {
           )}
         </div>
       </nav>
-    </>
   );
 }

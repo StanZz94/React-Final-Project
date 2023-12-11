@@ -11,9 +11,12 @@ export default function PostDetails() {
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
 
+  {/*
+  // test 404 page
+
   if (Math.random() < 0.5) {
     throw new Error('SOME SOME SOME ERRORRRRRR');
-  }
+  } */}
 
   useEffect(() => {
     postService.getOne(postId).then(setPost);

@@ -32,6 +32,7 @@ function App() {
             <Route path={Path.Create} element={<AuthGuard><Create /></AuthGuard>}/>
             <Route path={Path.PostDetails} element={<PostDetails />} />
             <Route path={Path.Logout} element={<Logout />} />
+            <Route path='*' element={<Home />} />
           </Routes>
           <Footer />
         </>
