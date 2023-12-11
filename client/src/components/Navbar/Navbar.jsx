@@ -30,7 +30,7 @@ export default function Navbar() {
               <Link onClick={activeHandler} to={Path.Create} className="nav-item nav-link tab">
                 Create Post
               </Link>
-              <Link  to={Path.Logout} className="nav-item nav-link tab">
+              <Link  to={Path.Logout} className="nav-item nav-link">
                 Logout
               </Link>
 

@@ -10,8 +10,14 @@ export default function Logout() {
 
     useEffect(() => {
         authService.logout()
-        .then(() => logoutHandler())
-        .catch(() => navigate(Path.Home))
+        .then(() => {
+            logoutHandler()
+            navigate(Path.Home)
+        })
+        .catch(() => {
+            logoutHandler()
+            navigate(Path.Login)
+        })
     }, []); 
 
     return null;

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
+    <>
+    <img className="img-fluid" src="public/img/footer.png" alt="" />
     <div className="container-fluid bg-dark text-white py-4">
       <div className="container text-center">
         <p className="mb-0">
@@ -16,5 +18,6 @@ export default function Footer() {
         </p>
       </div>
     </div>
+    </>
   );
 }

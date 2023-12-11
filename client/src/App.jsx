@@ -15,6 +15,8 @@ import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
 import Create from "./components/Create/Create";
 import PostDetails from "./components/PostDetails/PostDetails";
+import AuthGuard from "./components/Guards/authGuard";
+import GuestGuard from "./components/Guards/guestGuard";
 
 
 function App() {
@@ -27,9 +29,9 @@ function App() {
           <Route path={Path.Home} element={<Home />} />
           <Route path={Path.About} element={<About />} />
           <Route path={Path.Posts} element={<Posts />} />
-          <Route path={Path.Register} element={<Register />} />
-          <Route path={Path.Login} element={<Login />}/>
-          <Route path={Path.Create} element={<Create />} />
+          <Route path={Path.Register} element={<GuestGuard> <Register /> </GuestGuard>} />
+          <Route path={Path.Login} element={<GuestGuard> <Login /> </GuestGuard>}/>
+          <Route path={Path.Create} element={<AuthGuard> <Create /> </AuthGuard>} />
           <Route path={Path.PostDetails} element={<PostDetails />} />
           <Route path={Path.Logout} element={<Logout />} />
         </Routes>
