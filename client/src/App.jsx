@@ -27,12 +27,16 @@ function App() {
             <Route path={Path.Home} element={<Home />} />
             <Route path={Path.About} element={<About />} />
             <Route path={Path.Posts} element={<Posts />} />
-            <Route path={Path.Register} element={<GuestGuard><Register /></GuestGuard>} />
-            <Route path={Path.Login} element={<GuestGuard><Login /></GuestGuard>}/>
-            <Route path={Path.Create} element={<AuthGuard><Create /></AuthGuard>}/>
             <Route path={Path.PostDetails} element={<PostDetails />} />
-            <Route path={Path.Logout} element={<Logout />} />
-            <Route path='*' element={<Home />} />
+            <Route element={<AuthGuard />} >
+              <Route path={Path.Create} element={<Create />}/>
+              <Route path={Path.Logout} element={<Logout />} />
+            </Route>
+            <Route element={<GuestGuard />} >
+              <Route path={Path.Register} element={<Register />} />
+              <Route path={Path.Login} element={<Login />}/>
+            </Route>
+            <Route path={Path.WildCard} element={<Home />} />
           </Routes>
           <Footer />
         </>
