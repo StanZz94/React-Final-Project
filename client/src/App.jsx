@@ -1,8 +1,6 @@
-
 import { Routes, Route } from "react-router-dom";
 
-
-import {AuthProvider}  from "./contexts/authContext";
+import { AuthProvider } from "./contexts/authContext";
 import Path from "./paths";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -17,27 +15,28 @@ import Create from "./components/Create/Create";
 import PostDetails from "./components/PostDetails/PostDetails";
 import AuthGuard from "./components/Guards/authGuard";
 import GuestGuard from "./components/Guards/guestGuard";
-
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
-
   return (
-    <AuthProvider>
-      <>
-        <Navbar />
-        <Routes>
-          <Route path={Path.Home} element={<Home />} />
-          <Route path={Path.About} element={<About />} />
-          <Route path={Path.Posts} element={<Posts />} />
-          <Route path={Path.Register} element={<GuestGuard> <Register /> </GuestGuard>} />
-          <Route path={Path.Login} element={<GuestGuard> <Login /> </GuestGuard>}/>
-          <Route path={Path.Create} element={<AuthGuard> <Create /> </AuthGuard>} />
-          <Route path={Path.PostDetails} element={<PostDetails />} />
-          <Route path={Path.Logout} element={<Logout />} />
-        </Routes>
-        <Footer />
-      </>
-    </AuthProvider> 
+    <ErrorBoundary>
+      <AuthProvider>
+        <>
+          <Navbar />
+          <Routes>
+            <Route path={Path.Home} element={<Home />} />
+            <Route path={Path.About} element={<About />} />
+            <Route path={Path.Posts} element={<Posts />} />
+            <Route path={Path.Register} element={<GuestGuard><Register /></GuestGuard>} />
+            <Route path={Path.Login} element={<GuestGuard><Login /></GuestGuard>}/>
+            <Route path={Path.Create} element={<AuthGuard><Create /></AuthGuard>}/>
+            <Route path={Path.PostDetails} element={<PostDetails />} />
+            <Route path={Path.Logout} element={<Logout />} />
+          </Routes>
+          <Footer />
+        </>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
 
