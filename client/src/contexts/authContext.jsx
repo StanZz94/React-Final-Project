@@ -50,6 +50,7 @@ export const AuthProvider = ({
       name: auth.name,
       lastName: auth.lastName,
       email: auth.email,
+      _id: auth._id,
       isAuthenticated: !!auth.email,
     }
 

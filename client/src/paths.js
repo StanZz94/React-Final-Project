@@ -7,6 +7,8 @@ const Path = {
     Login: '/login',
     Create: '/create',
     PostDetails: '/posts/:postId',
+    DeletePost: '/posts/:postId/delete',
+    EditPost: '/posts/:postId/edit',
     WildCard: '*',
 
 };

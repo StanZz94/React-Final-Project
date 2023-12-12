@@ -2,11 +2,13 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {AuthContext} from "../../contexts/authContext";
+import useForm from "../../hooks/useForm";
+import Path from "../../paths";
 import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentsService";
 
 export default function PostDetails() {
-  const { isAuthenticated, name, lastName } = useContext(AuthContext);
+  const { isAuthenticated, name, lastName, _id } = useContext(AuthContext);
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
@@ -24,15 +26,10 @@ export default function PostDetails() {
     commentsService.getAll(postId).then(setComments);
   }, [postId]); 
 
-  const addCommentHandler = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-
-    console.log(formData)
+  const addCommentHandler = async (values) => {
     const newComment = await commentsService.create(
       postId,
-      formData.get("comment")
+      values.comment,
     );
 
     setComments((state) => [
@@ -41,6 +38,12 @@ export default function PostDetails() {
     ]);
     
   };
+
+  const {values, onChange, onSubmit} = useForm(addCommentHandler, {
+    comment: '',
+  });
+
+  const isOwner = _id === post._ownerId;
 
   return (
     <div className="container-fluid py-5">
@@ -63,16 +66,26 @@ export default function PostDetails() {
                   {post.title}
                 </h1>
                 <hr/>
+
+                {isOwner && (
+                <div style={{float:'right'}}>
+                <Link to={Path.EditPost} style={{flaot: 'left', padding: "10px 15px", margin:"15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Edit</b></Link>
+                <Link to={Path.DeletePost} style={{flaot: 'left', padding: "10px 15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Delete</b></Link>
+                </div>
+                )}
                 <b>
                   <p style={{ color: "black" }}>
                     Author: {post.name} {post.lastName}
                   </p>
                 </b>
+
+                
                 <b>
                   <span style={{ color: "black", overflowWrap: "break-word" }}>
                     {post.myPost}
                   </span>
                 </b>
+      
               </div>
             </div>
           </div>
@@ -114,13 +127,15 @@ export default function PostDetails() {
 {isAuthenticated && (
             <div className="bg-primary p-5" style={{ borderRadius: "20px", marginTop: "35px"}}>
               <h2 className="text-white mb-4">Leave a comment</h2>
-              <form onSubmit={addCommentHandler}>
+              <form onSubmit={onSubmit}>
                 <div className="row g-3">
                   <div className="col-12">
                     <label htmlFor="comment" style={{ color: "black" }}>
                       Comment:
                     </label>
                     <textarea
+                      value={values.comment}
+                      onChange={onChange}
                       className="form-control bg-white border-0"
                       name="comment"
                       rows="5"

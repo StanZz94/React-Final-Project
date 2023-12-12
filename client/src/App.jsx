@@ -13,6 +13,7 @@ import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
 import Create from "./components/Create/Create";
 import PostDetails from "./components/PostDetails/PostDetails";
+import Edit from "./components/Edit/Edit"
 import AuthGuard from "./components/Guards/authGuard";
 import GuestGuard from "./components/Guards/guestGuard";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -31,6 +32,7 @@ function App() {
             <Route element={<AuthGuard />} >
               <Route path={Path.Create} element={<Create />}/>
               <Route path={Path.Logout} element={<Logout />} />
+              <Route path={Path.EditPost} element={<Edit />} />
             </Route>
             <Route element={<GuestGuard />} >
               <Route path={Path.Register} element={<Register />} />

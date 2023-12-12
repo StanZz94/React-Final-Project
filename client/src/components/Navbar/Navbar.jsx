@@ -33,7 +33,7 @@ export default function Navbar() {
                 Logout
               </Link>
 
-              <span style={{margin:'auto',paddingLeft: '25px', color: 'black'}}>Greetings <b>{name} {lastName}</b>!</span>
+              <span style={{margin:'auto',paddingLeft: '25px', color: 'black'}}>Greetings <b>{name}</b> !</span>
             </>
           )}
 
