@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {AuthContext} from "../../contexts/authContext";
@@ -8,6 +8,7 @@ import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentsService";
 
 export default function PostDetails() {
+  const navigate = useNavigate();
   const { isAuthenticated, name, lastName, _id } = useContext(AuthContext);
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
@@ -17,7 +18,7 @@ export default function PostDetails() {
   // test 404 page
 
   if (Math.random() < 0.5) {
-    throw new Error('SOME SOME SOME ERRORRRRRR');
+    throw new Error('SOME ERRORRRRRR');
   } */}
 
   useEffect(() => {
@@ -45,6 +46,15 @@ export default function PostDetails() {
 
   const isOwner = _id === post._ownerId;
 
+  const deletePostHandler = async () => {
+    const hasConfirmed = confirm(`${name} you sure you want to delete post whit title "${post.title}" ?`)
+
+    if(hasConfirmed) {
+      await postService.remove(postId);
+      navigate(Path.Posts);
+    }
+  }
+
   return (
     <div className="container-fluid py-5">
       <div className="container">
@@ -70,7 +80,7 @@ export default function PostDetails() {
                 {isOwner && (
                 <div style={{float:'right'}}>
                 <Link to={Path.EditPost} style={{flaot: 'left', padding: "10px 15px", margin:"15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Edit</b></Link>
-                <Link to={Path.DeletePost} style={{flaot: 'left', padding: "10px 15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Delete</b></Link>
+                <button onClick={deletePostHandler} style={{flaot: 'left', padding: "10px 15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Delete</b></button>
                 </div>
                 )}
                 <b>
