@@ -1,11 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useMemo } from "react";
 import { Link } from "react-router-dom";
 import {AuthContext} from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 import Path from "../../paths";
 import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentsService";
+import { pathToUrl } from "../../utils/pathUtil";
 
 export default function PostDetails() {
   const navigate = useNavigate();
@@ -40,14 +41,16 @@ export default function PostDetails() {
     
   };
 
-  const {values, onChange, onSubmit} = useForm(addCommentHandler, {
-    comment: '',
-  });
+  const initialValue = useMemo(() => ({
+      comment: '',
+  }), []);
+
+  const {values, onChange, onSubmit} = useForm(addCommentHandler, initialValue);
 
   const isOwner = _id === post._ownerId;
 
   const deletePostHandler = async () => {
-    const hasConfirmed = confirm(`${name} you sure you want to delete post whit title "${post.title}" ?`)
+    const hasConfirmed = confirm(`${name} you sure you want to delete post: "${post.title}" ?`)
 
     if(hasConfirmed) {
       await postService.remove(postId);
@@ -79,7 +82,7 @@ export default function PostDetails() {
 
                 {isOwner && (
                 <div style={{float:'right'}}>
-                <Link to={Path.EditPost} style={{flaot: 'left', padding: "10px 15px", margin:"15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Edit</b></Link>
+                <Link to={pathToUrl(Path.EditPost, {postId})} style={{flaot: 'left', padding: "10px 15px", margin:"15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Edit</b></Link>
                 <button onClick={deletePostHandler} style={{flaot: 'left', padding: "10px 15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Delete</b></button>
                 </div>
                 )}
