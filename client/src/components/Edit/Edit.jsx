@@ -1,10 +1,12 @@
 import * as postServices from "../../services/postService";
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState , useContext} from "react";
 import {AuthContext} from "../../contexts/authContext";
-import { useContext, useEffect, useState } from "react";
-import useForm from "../../hooks/useForm";
+
+
 
 export default function Edit() {
+    const { name, lastName} = useContext(AuthContext);
   const [post, setPost] = useState({
     title:'',
     imageUrl:'',
@@ -20,8 +22,13 @@ export default function Edit() {
         })
   },[postId]);
 
-  const editPostSubmitHandler = async (values) => {
-    
+  const editPostSubmitHandler = async (e) => {
+    e.preventDefault();
+
+    const values = Object.fromEntries(new FormData(e.currentTarget));
+    values.name = name;
+    values.lastName = lastName;
+
     try {
       await postServices.edit(postId ,values);
       navigate("/posts");
@@ -31,7 +38,12 @@ export default function Edit() {
 
   };
 
-  const { values, onChange, onSubmit } = useForm(editPostSubmitHandler, post);
+  const onChange = (e) => {
+    setPost(state => ({
+        ...state,
+        [e.target.name]: e.target.value
+    }));
+  };
 
   return (
     <div className="container-fluid py-5">
@@ -40,14 +52,14 @@ export default function Edit() {
           <h1 className="display-5">Edit Post</h1>
 
           <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px", marginTop: "50px" ,borderRadius: "20px" }}>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={editPostSubmitHandler}>
               <div className="row g-3">
                 <div className="col-12">
                   <label htmlFor="title" style={{ color: "black" }}>
                     Title:
                   </label>
                   <input
-                    value={values.title}
+                    value={post.title}
                     onChange={onChange}
                     name="title"
                     type="text"
@@ -61,7 +73,7 @@ export default function Edit() {
                     Image URL:
                   </label>
                   <input
-                    value={values.imageUrl}
+                    value={post.imageUrl}
                     onChange={onChange}
                     name="imageUrl"
                     type="text"
@@ -79,7 +91,7 @@ export default function Edit() {
                     My Post:
                   </label>
                   <textarea
-                  value={values.myPost}
+                  value={post.myPost}
                     onChange={onChange}
                     name="myPost"
                     className="form-control bg-light border-0 px-4 py-3"
