@@ -29,7 +29,7 @@ export default class ErrorBoundary extends Component {
             return (
                 <div style={{textAlign: "center", marginTop: "150px"}}>
                     <h1 style={{padding: "50px"}}>Something went wrong !</h1>
-                    <img className="img-fluid" style={{width: "500px"}} src="../public/img/404.png" alt="" />
+                    <img className="img-fluid" style={{width: "500px"}} src="/img/404.png" alt="" />
                     <h2 style={{padding: "40px"}}>Page not found!</h2>
                 </div>
                 )

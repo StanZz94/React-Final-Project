@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import Path from "../../paths";
 
 export default function Navbar() {
-  const { isAuthenticated, name, lastName} = useContext(AuthContext);
+  const { isAuthenticated, name} = useContext(AuthContext);
   const [isActive, setIsActive] = useState(false);
 
   const activeHandler = (e) => {
  
-    console.log()
   }
 
   return (

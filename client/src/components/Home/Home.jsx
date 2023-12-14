@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import Path from "../../paths";
 
+import * as postService from "../../services/postService"
+import { useEffect, useState } from "react";
+import LatestPost from "./LatestPost/LatestPost";
+
 export default function Home() {
+
+  const [latest, setLatest] = useState([]);
+
+  useEffect(() => {
+    postService.getLatest()
+    .then(result => setLatest(result));
+  }, []);
+
   return (
     <div>
     <div className="container-fluid bg-testimonial py-5 my-5" style={{ width: "auto",height: "600px"}}>
@@ -54,42 +66,11 @@ export default function Home() {
             style={{ maxWidth: "500px" }}
           >
             <h6 className="text-primary text-uppercase">Articles</h6>
-            <h1 className="display-5">Latest From Our Blog Post</h1>
+            <h1 className="display-5">Latests Posts From Our Blog !</h1>
           </div>
           <div className="row g-5">
-            <div className="col-lg-4">
-              <div className="blog-item position-relative overflow-hidden">
-                <img className="img-fluid" src="img/blog-1.jpg" alt="" />
-                <Link className="blog-overlay" to="">
-                  <h4 className="text-white">
-                    Lorem elitr magna stet eirmod labore amet
-                  </h4>
-                  <span className="text-white fw-bold">Jan 01, 2050</span>
-                </Link>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="blog-item position-relative overflow-hidden">
-                <img className="img-fluid" src="img/blog-2.jpg" alt="" />
-                <Link className="blog-overlay" to="">
-                  <h4 className="text-white">
-                    Lorem elitr magna stet eirmod labore amet
-                  </h4>
-                  <span className="text-white fw-bold">Jan 01, 2050</span>
-                </Link>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="blog-item position-relative overflow-hidden">
-                <img className="img-fluid" src="img/blog-3.jpg" alt="" />
-                <Link className="blog-overlay" to="">
-                  <h4 className="text-white">
-                    Lorem elitr magna stet eirmod labore amet
-                  </h4>
-                  <span className="text-white fw-bold">Jan 01, 2050</span>
-                </Link>
-              </div>
-            </div>
+          {latest.map(post => <LatestPost key={post._id} {...post} />)}
+          {!latest.length && <h3 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>There are no posts!</h3>}
           </div>
         </div>
       </div>
