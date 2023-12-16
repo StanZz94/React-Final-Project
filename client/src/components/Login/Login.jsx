@@ -5,7 +5,7 @@ import  {AuthContext}  from "../../contexts/authContext";
 
 export default function Login() {
     const { loginSubmitHandler } = useContext(AuthContext);
-    const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
+    const { values, errors, onChange, onSubmit } = useForm(loginSubmitHandler, {
         email: '',
         password: '',
     })
@@ -39,6 +39,7 @@ export default function Login() {
                                     value={values.password} 
                                     style={{ height: "55px" }} />
                                 </div>
+                                {errors.length == 0 ? null : errors.map((error, index) => <div key={index}>{error}</div>)}
                                 <div className="col-12">
                                     <button className="btn btn-secondary w-100 py-3" style={{marginTop: "30px" ,borderRadius: "20px"}} type="submit">Login</button>
                                 </div>

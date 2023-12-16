@@ -58,6 +58,12 @@ export default function PostDetails() {
     }
   }
 
+  const deleteCommentHandler = async (_id) => {
+    //const hasConfirmed = confirm(`${name} you sure you want to delete this comment ?`)
+
+    console.log(_id);
+  }
+
   return (
     <div className="container-fluid py-5">
       <div className="container">
@@ -132,6 +138,7 @@ export default function PostDetails() {
                   <i></i>
                 </small>
               </h6>
+              <button onClick={(ev) => deleteCommentHandler(_id)} />
               <span style={{ color: "black", overflowWrap: "break-word" }}>{comment}</span>
             </div>
           </div>

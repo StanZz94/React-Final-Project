@@ -16,24 +16,42 @@ export const AuthProvider = ({
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
   
-    const loginSubmitHandler = async (values) => {
-      const result = await authService.login(values.email, values.password);
-  
-      setAuth(result);
-  
-      localStorage.setItem('accessToken', result.accessToken);
-  
-      navigate(Path.Home);
+    const loginSubmitHandler = async (values, onError) => {
+      try {
+        const result = await authService.login(values.email, values.password);
+        
+        setAuth(result);
+    
+        localStorage.setItem('accessToken', result.accessToken);
+    
+        navigate(Path.Home);
+      } catch (error) {
+        onError(await error);
+      }
     };
   
-    const registerSubmitHandler = async (values) => {
-      const result = await authService.register(values.email, values.password, values.name, values.lastName);
+    const registerSubmitHandler = async (values, onError) => {
+      const { password, repeatPassword } = values;
+
+      if (password != repeatPassword) {
+          if (errors.includes("Password and Repeat password does not match!") == false){
+              onError("Password and Repeat password does not match!");
+          }
+
+          return;
+      }
+        
+      try {
+        const result = await authService.register(values.email, values.password, values.name, values.lastName);
   
-      setAuth(result);
-  
-      localStorage.setItem('accessToken', result.accessToken);
-  
-      navigate(Path.Home);
+        setAuth(result);
+    
+        localStorage.setItem('accessToken', result.accessToken);
+    
+        navigate(Path.Home);
+      } catch (error) {
+        onError(await error);
+      }
     };
   
     const logoutHandler = () => {

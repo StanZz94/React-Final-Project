@@ -15,7 +15,7 @@ export default function Register() {
 
     const { registerSubmitHandler } = useContext(AuthContext);
 
-    const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
+    const {errors, onChange, onSubmit} = useForm(registerSubmitHandler, {
         [RegisterFormKeys.Name]: '',
         [RegisterFormKeys.LastName]: '',
         [RegisterFormKeys.Email]: '',
@@ -51,6 +51,7 @@ export default function Register() {
                                 <label htmlFor="repeatPassword" style={{ color: "black"}}>Repeat Password:</label>
                                     <input type="password" name="repeatPassword" className="form-control bg-light border-0 px-4" onChange={onChange} placeholder="" style={{ height: "55px" }} />
                                 </div>
+                                {errors.length == 0 ? null : errors.map((error, index) => <div key={index}>{error}</div>)}
                                 <div className="col-12">
                                     <button className="btn btn-secondary w-100 py-3" style={{marginTop: "30px", borderRadius: "20px"}} type="submit">Register</button>
                                 </div>
