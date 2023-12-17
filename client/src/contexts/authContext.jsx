@@ -31,15 +31,6 @@ export const AuthProvider = ({
     };
   
     const registerSubmitHandler = async (values, onError) => {
-      const { password, repeatPassword } = values;
-
-      if (password != repeatPassword) {
-          if (errors.includes("Password and Repeat password does not match!") == false){
-              onError("Password and Repeat password does not match!");
-          }
-
-          return;
-      }
         
       try {
         const result = await authService.register(values.email, values.password, values.name, values.lastName);

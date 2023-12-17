@@ -1,0 +1,15 @@
+.loginLabel{
+    color: black;
+}
+.errorDiv {
+    border:1px solid darkred;
+    background-color: red;
+    color: white;
+    
+}
+
+.loginP{
+    color: black;
+    float: left;
+    margin-top: 20px
+}

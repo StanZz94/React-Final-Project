@@ -1,30 +1,51 @@
 import { useState } from "react";
 
 export default function useForm(submitHandler, initialValues) {
-    const [ values, setValues ] = useState(initialValues);
-    const [ errors, setErrors ] = useState([]);
+  const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState([]);
 
-    const onChange = (e) => {
-        setValues(state => ({
-            ...state,
-            [e.target.name]: e.target.value,
-        }));
-    }
+  const onChange = (e) => {
+    setValues((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-    const onSubmit = (e) => {
-        e.preventDefault();
+  const onSubmit = (e) => {
+    e.preventDefault();
 
-        submitHandler(values, (error) => {
-            setErrors([...errors, error.message]);
-        });
+    submitHandler(values, (error) => {
+      if (!errors.includes(error.message)) {
+        setErrors([...errors, error.message]);
+      }
+    });
 
-        setValues(initialValues);
-    }
+    setValues(initialValues);
+  };
+  const onSubmitRegister = (e) => {
+    e.preventDefault();
 
-    return {
-        values,
-        errors,
-        onChange,
-        onSubmit
-    };
+    submitHandler(values, (error) => {
+      const { password, repeatPassword } = values;
+
+      if (password !== repeatPassword) {
+
+        setErrors([...errors, "Password and Repeat password does not match!"]);
+      }
+
+      if (!errors.includes(error.message)) {
+        setErrors([...errors, error.message]);
+      }
+    });
+
+    setValues(initialValues);
+  };
+
+  return {
+    values,
+    errors,
+    onChange,
+    onSubmit,
+    onSubmitRegister,
+  };
 }

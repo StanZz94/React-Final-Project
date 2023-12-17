@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import {AuthContext} from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
+import styles from "./Styles.module.css"
 
 const RegisterFormKeys = {
     Name: 'name',
@@ -15,7 +16,7 @@ export default function Register() {
 
     const { registerSubmitHandler } = useContext(AuthContext);
 
-    const {errors, onChange, onSubmit} = useForm(registerSubmitHandler, {
+    const {errors, onChange, onSubmitRegister} = useForm(registerSubmitHandler, {
         [RegisterFormKeys.Name]: '',
         [RegisterFormKeys.LastName]: '',
         [RegisterFormKeys.Email]: '',
@@ -29,34 +30,34 @@ export default function Register() {
                 <h1 className="display-5">Register</h1>
 
                 <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px", borderRadius: "20px" }}>
-                        <form onSubmit={onSubmit}>
+                        <form onSubmit={onSubmitRegister}>
                             <div className="row g-3">
                                 <div className="col-12">
-                                    <label htmlFor="name" style={{ color: "black"}}>Name:</label>
+                                    <label htmlFor="name" className={styles.registerLabel}>Name:</label>
                                     <input type="text" name="name" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                <label htmlFor="lastName" style={{ color: "black"}}>Last Name:</label>
+                                <label htmlFor="lastName" className={styles.registerLabel}>Last Name:</label>
                                     <input type="text" name="lastName" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                <label htmlFor="email" style={{ color: "black"}}>Email:</label>
+                                <label htmlFor="email" className={styles.registerLabel}>Email:</label>
                                     <input type="email" name="email" className="form-control bg-light border-0 px-4" placeholder="" onChange={onChange} style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                <label htmlFor="password" style={{ color: "black"}}>Password:</label>
+                                <label htmlFor="password" className={styles.registerLabel}>Password:</label>
                                     <input type="password" name="password" className="form-control bg-light border-0 px-4" onChange={onChange} placeholder="" style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                <label htmlFor="repeatPassword" style={{ color: "black"}}>Repeat Password:</label>
+                                <label htmlFor="repeatPassword" className={styles.registerLabel}>Repeat Password:</label>
                                     <input type="password" name="repeatPassword" className="form-control bg-light border-0 px-4" onChange={onChange} placeholder="" style={{ height: "55px" }} />
                                 </div>
-                                {errors.length == 0 ? null : errors.map((error, index) => <div key={index}>{error}</div>)}
+                                {errors.length == 0 ? null : errors.map((error, index) => <div className={styles.errorDiv} key={index}><b>{error}</b></div>)}
                                 <div className="col-12">
                                     <button className="btn btn-secondary w-100 py-3" style={{marginTop: "30px", borderRadius: "20px"}} type="submit">Register</button>
                                 </div>
                                 <div className="col-12">
-                                    <p style={{ color: "black", float: 'left', marginTop: "20px"}}>Already registered? Click <Link to={'/login'} style={{ color: "blue"}}>HERE</Link>!</p>
+                                    <p className={styles.registerP} >Already registered? Click <Link to={'/login'} style={{ color: "blue"}}>HERE</Link>!</p>
                                 </div>
                             </div>
                         </form>

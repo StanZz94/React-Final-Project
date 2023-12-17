@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 import  {AuthContext}  from "../../contexts/authContext";
+import styles from "./Styles.module.css"
 
 export default function Login() {
     const { loginSubmitHandler } = useContext(AuthContext);
@@ -20,7 +21,7 @@ export default function Login() {
                         <form onSubmit={onSubmit}>
                             <div className="row g-3">
                                 <div className="col-12">
-                                    <label htmlFor="email" style={{ color: "black" }}>Email:</label>
+                                    <label htmlFor="email" className={styles.loginLabel}>Email:</label>
                                     <input 
                                     type="email" 
                                     name='email' 
@@ -30,7 +31,7 @@ export default function Login() {
                                     style={{ height: "55px" }} />
                                 </div>
                                 <div className="col-12">
-                                    <label htmlFor="password" style={{ color: "black" }}>Password:</label>
+                                    <label htmlFor="password" className={styles.loginLabel}>Password:</label>
                                     <input 
                                     type="password" 
                                     name='password' 
@@ -39,12 +40,12 @@ export default function Login() {
                                     value={values.password} 
                                     style={{ height: "55px" }} />
                                 </div>
-                                {errors.length == 0 ? null : errors.map((error, index) => <div style={{backgroundColor: "red", color:"white"}} key={index}>{error}</div>)}
+                                {errors.length == 0 ? null : errors.map((error, index) => <div className={styles.errorDiv} key={index}><b>{error}</b></div>)}
                                 <div className="col-12">
                                     <button className="btn btn-secondary w-100 py-3" style={{marginTop: "30px" ,borderRadius: "20px"}} type="submit">Login</button>
                                 </div>
                                 <div className="col-12">
-                                    <p style={{ color: "black", float: 'left'}}>If you are not registered click <Link to={'/register'} style={{ color: "blue"}}>HERE</Link>!</p>
+                                    <p className={styles.loginP}>If you are not registered click <Link to={'/register'} style={{ color: "blue"}}>HERE</Link>!</p>
                                 </div>
                             </div>
                         </form>
