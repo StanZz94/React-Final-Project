@@ -14,6 +14,7 @@ export default function PostDetails() {
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
+  const commentOwnerName = name;
 
   {/*
   // test 404 page
@@ -46,7 +47,7 @@ export default function PostDetails() {
   }), []);
 
   const {values, onChange, onSubmit} = useForm(addCommentHandler, initialValue);
-
+  const commentId = '';
   const isOwner = _id === post._ownerId;
 
   const deletePostHandler = async () => {
@@ -59,9 +60,13 @@ export default function PostDetails() {
   }
 
   const deleteCommentHandler = async (_id) => {
-    //const hasConfirmed = confirm(`${name} you sure you want to delete this comment ?`)
+    const hasConfirmed = confirm(`Are you sure you want to delete this comment ?`);
 
-    console.log(_id);
+    if(hasConfirmed) {
+      await commentsService.remove(_id);
+
+      commentsService.getAll(postId).then(setComments);
+    }
   }
 
   return (
@@ -129,6 +134,9 @@ export default function PostDetails() {
               
             }}
           >
+            {(commentOwnerName === name || isOwner) && (
+            <button onClick={(ev) => deleteCommentHandler(_id)} style={{float: "right", backgroundColor: "#34AD54", borderRadius: "10px", paddingLeft: "8px", paddingRight: "8px"}}>X</button>
+            )}
             <div className="ps-3">
               <h6>
                 <Link to="">
@@ -138,7 +146,6 @@ export default function PostDetails() {
                   <i></i>
                 </small>
               </h6>
-              <button onClick={(ev) => deleteCommentHandler(_id)} />
               <span style={{ color: "black", overflowWrap: "break-word" }}>{comment}</span>
             </div>
           </div>

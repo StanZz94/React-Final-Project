@@ -21,3 +21,5 @@ export const create = async (postId, comment) => {
 
     return newComment;
 };
+
+export const remove = async (commentId) => request.del(`${baseUrl}/${commentId}`);
