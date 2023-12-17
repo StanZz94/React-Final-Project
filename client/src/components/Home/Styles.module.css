@@ -1,0 +1,17 @@
+.homeH1 {
+    color: white;
+    text-align: center;
+    margin: 50px;
+}
+
+.homeDiv {
+    background-color: #198a2e;
+    border-radius: 20px;
+    width: 500px;
+}
+
+.homeH3{
+    color: green;
+    text-align: center;
+    margin-bottom: 50px;
+}

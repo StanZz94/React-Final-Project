@@ -2,7 +2,7 @@ import * as postServices from "../../services/postService";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState , useContext} from "react";
 import {AuthContext} from "../../contexts/authContext";
-
+import styles from "./Styles.module.css"
 
 
 export default function Edit() {
@@ -55,7 +55,7 @@ export default function Edit() {
             <form onSubmit={editPostSubmitHandler}>
               <div className="row g-3">
                 <div className="col-12">
-                  <label htmlFor="title" style={{ color: "black" }}>
+                  <label htmlFor="title" className={styles.createLabels}>
                     Title:
                   </label>
                   <input
@@ -69,7 +69,7 @@ export default function Edit() {
                   />
                 </div>
                 <div className="col-12">
-                  <label htmlFor="imageUrl" style={{ color: "black" }}>
+                  <label htmlFor="imageUrl" className={styles.createLabels}>
                     Image URL:
                   </label>
                   <input
@@ -86,7 +86,7 @@ export default function Edit() {
                   <label
                     htmlFor="myPost"
                     id="myPost"
-                    style={{ color: "black" }}
+                    className={styles.createLabels}
                   >
                     My Post:
                   </label>

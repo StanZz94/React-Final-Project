@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import * as postService from "../../services/postService"
 import {AuthContext} from "../../contexts/authContext";
 import PostItem from "./post-item/PostItem";
+import styles from "./Styles.module.css"
 
 export default function Posts() {
 
@@ -20,8 +21,8 @@ export default function Posts() {
 
   return (
     <div className="container-fluid py-5">
-      <h1 style={{color: 'green', textAlign: 'center', marginBottom: '20px'}}>Welcome to our blog!</h1>
-      <h2 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>Learn tips and tricks from one of the best farmers!</h2>
+      <h1 className={styles.postsH1}>Welcome to our blog!</h1>
+      <h2 className={styles.postsH2} >Learn tips and tricks from one of the best farmers!</h2>
       <div className="container">
         {/* Blog list Start  */}
         <div className="row g-5">
@@ -31,7 +32,7 @@ export default function Posts() {
           <PostItem key={post._id} {...post}/>
          ))}
 
-         {posts.length === 0 && <h3 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>There are no posts!</h3>}
+         {posts.length === 0 && <h3 className={styles.postsH2}>There are no posts!</h3>}
 
           <div className="col-12">
             <nav aria-label="Page navigation">

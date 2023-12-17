@@ -1,3 +1,5 @@
+import styles from "./Styles.module.css";
+
 export default function About() {
     return (
         <div className="container-fluid about pt-5">
@@ -24,11 +26,11 @@ export default function About() {
                             <h4>To Winner!</h4>
                         </div>
                     </div>
-                    <b><p className="mb-0" style={{marginTop: "25px"}}>In our blog you can learn best practices in bio farming!</p></b>
+                    <b><p className={styles.aboutP} >In our blog you can learn best practices in bio farming!</p></b>
                 </div>
             </div>
-            <div style={{width: "100%", height: "80px", backgroundColor: '#34AD54', marginBottom: "35px"}}>
-                <h3 style={{color: "white", textAlign: "center", paddingTop: "25px"}}>For some it's just work, for us it's a hobby !</h3>
+            <div className={styles.aboutDiv}>
+                <h3 className={styles.aboutH3}>For some it's just work, for us it's a hobby !</h3>
             </div>
         </div>
     </div>

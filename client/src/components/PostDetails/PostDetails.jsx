@@ -7,6 +7,7 @@ import Path from "../../paths";
 import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentsService";
 import { pathToUrl } from "../../utils/pathUtil";
+import styles from "./Styles.module.css"
 
 export default function PostDetails() {
   const navigate = useNavigate();
@@ -47,7 +48,6 @@ export default function PostDetails() {
   }), []);
 
   const {values, onChange, onSubmit} = useForm(addCommentHandler, initialValue);
-  const commentId = '';
   const isOwner = _id === post._ownerId;
 
   const deletePostHandler = async () => {
@@ -86,15 +86,15 @@ export default function PostDetails() {
             </div>
             <div className="col-md-6">
               <div className="mb-5">
-                <h1 className="mb-4" style={{ color: "green" }}>
+                <h1 className={styles.detailsTitle}>
                   {post.title}
                 </h1>
                 <hr/>
 
                 {isOwner && (
                 <div style={{float:'right'}}>
-                <Link to={pathToUrl(Path.EditPost, {postId})} style={{flaot: 'left', padding: "10px 15px", margin:"15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Edit</b></Link>
-                <button onClick={deletePostHandler} style={{flaot: 'left', padding: "10px 15px", backgroundColor: "green", color: 'white', borderRadius: "10px"}}><b>Delete</b></button>
+                <Link to={pathToUrl(Path.EditPost, {postId})} className={styles.detailsEditBtn} ><b>Edit</b></Link>
+                <button onClick={deletePostHandler} className={styles.detailsDeleteBtn} ><b>Delete</b></button>
                 </div>
                 )}
                 <b>
@@ -105,7 +105,7 @@ export default function PostDetails() {
 
                 
                 <b>
-                  <span style={{ color: "black", overflowWrap: "break-word" }}>
+                  <span className={styles.detailsSpan}>
                     {post.myPost}
                   </span>
                 </b>
@@ -124,18 +124,9 @@ export default function PostDetails() {
         )}
 
         {comments.map(({ _id, comment, owner: { name, lastName } }) => (
-          <div
-            key={_id}
-            style={{
-              border: "5px solid green",
-              borderRadius: "5px",
-              padding: "10px",
-              marginTop: "15px",
-              
-            }}
-          >
+          <div key={_id} className={styles.detailsCommentDiv} >
             {(commentOwnerName === name || isOwner) && (
-            <button onClick={(ev) => deleteCommentHandler(_id)} style={{float: "right", backgroundColor: "#34AD54", borderRadius: "10px", paddingLeft: "8px", paddingRight: "8px"}}>X</button>
+            <button onClick={(ev) => deleteCommentHandler(_id)} className={styles.detailsCommentDeleteBtn} >X</button>
             )}
             <div className="ps-3">
               <h6>
@@ -146,7 +137,7 @@ export default function PostDetails() {
                   <i></i>
                 </small>
               </h6>
-              <span style={{ color: "black", overflowWrap: "break-word" }}>{comment}</span>
+              <span className={styles.detailsSpan}>{comment}</span>
             </div>
           </div>
         ))}
@@ -157,7 +148,7 @@ export default function PostDetails() {
               <form onSubmit={onSubmit}>
                 <div className="row g-3">
                   <div className="col-12">
-                    <label htmlFor="comment" style={{ color: "black" }}>
+                    <label htmlFor="comment" className={styles.detailsLabel} >
                       Comment:
                     </label>
                     <textarea

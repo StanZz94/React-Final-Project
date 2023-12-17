@@ -4,6 +4,7 @@ import Path from "../../paths";
 import * as postService from "../../services/postService"
 import { useEffect, useState } from "react";
 import LatestPost from "./LatestPost/LatestPost";
+import styles from "./Styles.module.css"
 
 export default function Home() {
 
@@ -19,8 +20,8 @@ export default function Home() {
     <div className="container-fluid bg-testimonial py-5 my-5" style={{ width: "auto",height: "600px"}}>
         <div className="container py-5">
             <div className="row justify-content-center">
-                <div className="" style={{backgroundColor: ' #198a2e', borderRadius: "20px", width:'500px'}}>
-                   <h1 style={{textAlign: "center", color: "#FF9933", fontFamily: "cursive"}}>Welcome To Our<br/> GREEN Forum !</h1>
+                <div className={styles.homeDiv}>
+                   <h1 className={styles.homeH1}>Welcome To Our<br/> GREEN Forum !</h1>
                 </div>
             </div>
         </div>
@@ -70,7 +71,7 @@ export default function Home() {
           </div>
           <div className="row g-5">
           {latest.map(post => <LatestPost key={post._id} {...post} />)}
-          {!latest.length && <h3 style={{color: 'green', textAlign: 'center', marginBottom: '50px'}}>There are no posts!</h3>}
+          {!latest.length && <h3 className={styles.homeH3}>There are no posts!</h3>}
           </div>
         </div>
       </div>
