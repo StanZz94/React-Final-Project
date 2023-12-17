@@ -22,11 +22,13 @@ export default function useForm(submitHandler, initialValues) {
 
     setValues(initialValues);
   };
+
+
   const onSubmitRegister = (e) => {
     e.preventDefault();
-
     submitHandler(values, (error) => {
       const { password, repeatPassword } = values;
+    
 
       if (password !== repeatPassword) {
 

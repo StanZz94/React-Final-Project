@@ -44,4 +44,13 @@
     color: black;
 }
 
+.errorDiv {
+    border:1px solid darkred;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
 

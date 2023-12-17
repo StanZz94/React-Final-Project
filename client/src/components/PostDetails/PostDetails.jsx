@@ -16,6 +16,7 @@ export default function PostDetails() {
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
   const commentOwnerName = name;
+  const [ errors, setErrors ] = useState([]);
 
   {/*
   // test 404 page
@@ -31,6 +32,12 @@ export default function PostDetails() {
   }, [postId]); 
 
   const addCommentHandler = async (values) => {
+    setErrors([]);
+    try{
+
+    if(values.comment.length < 1){
+      throw new Error("Cant send empthy comment !")
+    }
     const newComment = await commentsService.create(
       postId,
       values.comment,
@@ -40,6 +47,9 @@ export default function PostDetails() {
       ...state,
       { ...newComment, owner: { name, lastName } },
     ]);
+  } catch (error){
+    setErrors([error.message]);
+  }
     
   };
 
@@ -161,6 +171,7 @@ export default function PostDetails() {
                     ></textarea>
                   </div>
                   <div className="col-12">
+                    {errors.length > 0 && <div className={styles.errorDiv}><p>{[...errors]}</p></div>}
                     <button
                       className="btn btn-secondary w-100 py-3"
                       style={{ marginTop: "30px", borderRadius: "20px" }}
