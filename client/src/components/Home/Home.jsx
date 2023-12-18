@@ -4,7 +4,7 @@ import Path from "../../paths";
 import * as postService from "../../services/postService"
 import { useEffect, useState } from "react";
 import LatestPost from "./LatestPost/LatestPost";
-import styles from "./Styles.module.css"
+import styles from "./Home.module.css";
 
 export default function Home() {
 
@@ -50,7 +50,7 @@ export default function Home() {
               >
                 <h3 className="text-white mb-3">To Our Blog !</h3>
                 <p className="text-white">
-                  If you want to visite our blog click <Link className="text-white fw-bold" to={Path.Posts}>
+                  If you want to visit our blog click <Link className="text-white fw-bold" to={Path.Posts}>
                   Here !
                 </Link>
                 </p>
@@ -60,14 +60,14 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container-fluid py-5">
+      <div className="container-fluid py-5" >
         <div className="container">
           <div
             className="mx-auto text-center mb-5"
             style={{ maxWidth: "500px" }}
           >
             <h6 className="text-primary text-uppercase">Articles</h6>
-            <h1 className="display-5">Latests Posts From Our Blog !</h1>
+            <h1 className="display-5">From Our Blog !</h1>
           </div>
           <div className="row g-5">
           {latest.map(post => <LatestPost key={post._id} {...post} />)}
@@ -75,6 +75,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div style={{height:"100px"}}></div>
       </div>
   );
 }

@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import * as postService from "../../services/postService"
-import {AuthContext} from "../../contexts/authContext";
 import PostItem from "./post-item/PostItem";
-import styles from "./Styles.module.css"
+import styles from "./Posts.module.css"
 
 export default function Posts() {
-
-  const { isAuthenticated, name, lastName} = useContext(AuthContext);
 
   const [posts, setPosts ] = useState([]);
 
@@ -21,10 +18,10 @@ export default function Posts() {
 
   return (
     <div className="container-fluid py-5">
-      <h1 className={styles.postsH1}>Welcome to our blog!</h1>
-      <h2 className={styles.postsH2} >Learn tips and tricks from one of the best farmers!</h2>
+      <h1 className={styles.postsH1}>Welcome to our Blog!</h1>
       <div className="container">
-        {/* Blog list Start  */}
+      <h2 className={styles.postsH2} >Learn tips and tricks from one of the best farmers!</h2>
+      <hr style={{marginBottom:'50px'}} />
         <div className="row g-5">
 
 
@@ -35,68 +32,10 @@ export default function Posts() {
          {posts.length === 0 && <h3 className={styles.postsH2}>There are no posts!</h3>}
 
           <div className="col-12">
-            <nav aria-label="Page navigation">
-              <ul className="pagination pagination-lg justify-content-center m-0">
-                <li className="page-item disabled">
-                  <Link
-                    className="page-link rounded-0"
-                    to="#"
-                    aria-label="Previous"
-                  >
-                    <span aria-hidden="true">
-                      <i className="bi bi-arrow-left"></i>
-                    </span>
-                  </Link>
-                </li>
-                <li className="page-item active">
-                  <Link className="page-link" to="#">
-                    1
-                  </Link>
-                </li>
-                <li className="page-item">
-                  <Link className="page-link" to="#">
-                    2
-                  </Link>
-                </li>
-                <li className="page-item">
-                  <Link className="page-link" to="#">
-                    3
-                  </Link>
-                </li>
-                <li className="page-item">
-                  <Link
-                    className="page-link rounded-0"
-                    to="#"
-                    aria-label="Next"
-                  >
-                    <span aria-hidden="true">
-                      <i className="bi bi-arrow-right"></i>
-                    </span>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            <div className={styles.underPostsDiv}><h2 className={styles.underPostsText}>If you got tips and trick for sharing, dont be shy and post it ! </h2></div>
           </div>
         </div>
       </div>
-      {/* Blog list End  */}
-
-      {/* Sidebar Start  */}
-      {/* Search Form Start  
-                <div className="mb-5">
-                    <div className="input-group">
-                        <input type="text" className="form-control p-3" placeholder="Keyword" />
-                        <button className="btn btn-primary px-4"><i className="bi bi-search"></i></button>
-                    </div>
-                </div>
-                 Search Form End  */}
-
-      {/* Image Start  
-                <div className="mb-5">
-                    <img src="img/blog-1.jpg" alt="" className="img-fluid rounded" />
-                </div>
-                 Image End  */}
-      {/* Sidebar End  */}
     </div>
   );
 }

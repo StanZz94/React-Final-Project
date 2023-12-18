@@ -2,17 +2,18 @@ import * as postServices from "../../services/postService";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState , useContext} from "react";
 import {AuthContext} from "../../contexts/authContext";
-import styles from "./Styles.module.css"
+import styles from "./Edit.module.css";
+import Path from "../../paths";
 
 
 export default function Edit() {
     const { name, lastName} = useContext(AuthContext);
     const [errors, setErrors ] = useState("")
-  const [post, setPost] = useState({
-    title:'',
-    imageUrl:'',
-    myPost:'',
-  });
+    const [post, setPost] = useState({
+      title:'',
+      imageUrl:'',
+      myPost:'',
+    });
   const { postId } = useParams();
   const navigate = useNavigate();
 
@@ -37,7 +38,7 @@ export default function Edit() {
       }
 
       await postServices.edit(postId ,values);
-      navigate("/posts");
+      navigate(Path.Posts);
     } catch (err) {
       setErrors(err.message)
     }
@@ -49,6 +50,8 @@ export default function Edit() {
         ...state,
         [e.target.name]: e.target.value
     }));
+
+    setErrors([]);
   };
 
   return (

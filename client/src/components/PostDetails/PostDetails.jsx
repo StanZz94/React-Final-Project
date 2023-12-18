@@ -7,7 +7,7 @@ import Path from "../../paths";
 import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentsService";
 import { pathToUrl } from "../../utils/pathUtil";
-import styles from "./Styles.module.css"
+import styles from "./PostDetails.module.css"
 
 export default function PostDetails() {
   const navigate = useNavigate();

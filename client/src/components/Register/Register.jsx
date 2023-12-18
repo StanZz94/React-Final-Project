@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import {AuthContext} from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
-import styles from "./Styles.module.css"
+import styles from "./Register.module.css";
 
 const RegisterFormKeys = {
     Name: 'name',
@@ -21,7 +21,7 @@ export default function Register() {
         [RegisterFormKeys.LastName]: '',
         [RegisterFormKeys.Email]: '',
         [RegisterFormKeys.Password]: '',
-    })
+    });
 
   return (
     <div className="container-fluid py-5">

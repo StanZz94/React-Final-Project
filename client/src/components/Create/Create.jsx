@@ -2,11 +2,12 @@ import * as postServices from "../../services/postService";
 import { useNavigate } from "react-router-dom";
 import {AuthContext} from "../../contexts/authContext";
 import { useContext, useState } from "react";
-import styles from "./Styles.module.css"
+import styles from "./Create.module.css";
 
 export default function Create() {
   const { name, lastName} = useContext(AuthContext);
   const [errors, setErrors]= useState([]);
+  const [values, setValues] = useState({title:'',imageUrl:'',myPost:''})
   const navigate = useNavigate();
 
   const createPostSubmitHandler = async (e) => {
@@ -28,6 +29,15 @@ export default function Create() {
     }
   };
 
+  const onChange = (e) => {
+    setValues((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+
+    setErrors([]);
+  };
+
   return (
     <div className="container-fluid py-5">
       <div className="container">
@@ -46,6 +56,7 @@ export default function Create() {
                     type="text"
                     className="form-control bg-light border-0 px-4"
                     placeholder=""
+                    onChange={onChange}
                     style={{ height: "55px" }}
                   />
                 </div>
@@ -56,6 +67,7 @@ export default function Create() {
                   <input
                     name="imageUrl"
                     type="text"
+                    onChange={onChange}
                     className="form-control bg-light border-0 px-4"
                     placeholder=""
                     style={{ height: "55px" }}
@@ -70,6 +82,7 @@ export default function Create() {
                     My Post:
                   </label>
                   <textarea
+                  onChange={onChange}
                     name="myPost"
                     className="form-control bg-light border-0 px-4 py-3"
                     rows="2"

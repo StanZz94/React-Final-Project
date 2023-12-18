@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 import  {AuthContext}  from "../../contexts/authContext";
-import styles from "./Styles.module.css"
+import styles from "./Login.module.css"
 
 export default function Login() {
     const { loginSubmitHandler } = useContext(AuthContext);
