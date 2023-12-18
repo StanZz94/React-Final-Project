@@ -21,7 +21,7 @@ export default function Navbar() {
             About us
           </Link>
           <Link onClick={activeHandler} to={Path.Posts} className="nav-item nav-link tab">
-            Posts
+            Blog
           </Link>
           {isAuthenticated && (
             <>

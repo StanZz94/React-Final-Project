@@ -1341,10 +1341,8 @@
     	sessions: {
     	}
     };
-    https://ceeinfo.bg/wp-content/uploads/2020/10/zemedelie.jpg
     var seedData = {
     	posts: {
-            
             "36a9cb75-79c2-4ad5-abf2-ba8720c1616d":{
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "title": "Pumpkins Trouble !",
@@ -1395,6 +1393,27 @@
                 "_createdOn": 1702137408370,
                 "_id": "e61970cf-e564-4622-802e-da25c87b6bfd"
             },
+            "ae12919d-4517-4da3-8e94-27f690774977":{
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "GROWING CORN",
+                "imageUrl": "https://bonnieplants.com/cdn/shop/articles/BONNIE-PLANTS_corn-iStock-857670630-2400px_1ce4b5df-20b7-433c-acde-8703235c66be.jpg?v=1642542000&width=1000",
+                "myPost": "Corn needs plenty of space for two reasons — it takes up a lot of nutrition from the soil, and it is primarily pollinated by wind. As grains of pollen are shed by the tassels that grow from the plants' tops, they must find their way to the delicate strands of silk that emerge from newly formed ears. To make sure silks are nicely showered with pollen, grow corn in blocks of short rows rather than in a long, single row. In a small garden, 15 plants set 1 foot apart can be grown in a 3 x 5-foot bed. Growing corn on this tiny scale is a good way to introduce yourself to the crop if you've never grown it. After the first year you will probably want to increase the size of the planting to at least 4 rows 10 feet long.",
+                "name": "George",
+                "lastName": "Hooly",
+                "_createdOn": 1702906097681,
+                "_id": "ae12919d-4517-4da3-8e94-27f690774977"
+            },
+            "430d279e-f28c-40d8-93df-4e294f24a855":{
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "How to Grow Onions",
+                "imageUrl": "https://bonnieplants.com/cdn/shop/articles/BONNIE_onions_iStock-892022394-1800px_cf21330f-cbf5-4e85-8212-15855474e8a6.jpg?v=1642541973&width=1000",
+                "myPost": "Growing onions is simple: If you can poke a hole into the ground, you can grow an onion from a little plant. Most of our onion varieties are sold as little seedlings in bare-root bundles; each plant will start growing within days after you plant. If you can't plant your onions right away, remove their bindings and place them in a bucket with 2 inches of moist soil in the bottom. Keep them in a cool, bright place but out of direct sun until you are ready to plant. A sunny basement is ideal.",
+                "name": "Peter",
+                "lastName": "Hristov",
+                "_createdOn": 1702906294941,
+                "_id": "430d279e-f28c-40d8-93df-4e294f24a855"
+            },
+            
     	},
     	comments: {
     	},

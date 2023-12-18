@@ -9,6 +9,8 @@ export default function useForm(submitHandler, initialValues) {
       ...state,
       [e.target.name]: e.target.value,
     }));
+
+    setErrors([]);
   };
 
   const onSubmit = (e) => {
@@ -28,7 +30,6 @@ export default function useForm(submitHandler, initialValues) {
       
     }
 
-    setErrors([]);
 
     submitHandler(values, (error) => {
       if (!errors.includes(error.message)) {
