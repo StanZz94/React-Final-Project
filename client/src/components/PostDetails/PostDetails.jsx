@@ -7,7 +7,7 @@ import Path from "../../paths";
 import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentsService";
 import { pathToUrl } from "../../utils/pathUtil";
-import styles from "./PostDetails.module.css"
+import styles from "./PostDetails.module.css";
 
 export default function PostDetails() {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ export default function PostDetails() {
     try{
 
     if(values.comment.length < 1){
-      throw new Error("Cant send empthy comment !")
+      throw new Error("Can't send empty comment !")
     }
     const newComment = await commentsService.create(
       postId,
@@ -57,7 +57,7 @@ export default function PostDetails() {
       comment: '',
   }), []);
 
-  const {values, onChange, onSubmit} = useForm(addCommentHandler, initialValue);
+  const {values, onChangeComment, onSubmit} = useForm(addCommentHandler, initialValue, );
   const isOwner = _id === post._ownerId;
 
   const deletePostHandler = async () => {
@@ -152,7 +152,7 @@ export default function PostDetails() {
           </div>
         ))}
 
-{isAuthenticated && (
+          {isAuthenticated && (
             <div className="bg-primary p-5" style={{ borderRadius: "20px", marginTop: "35px"}}>
               <h2 className="text-white mb-4">Leave a comment</h2>
               <form onSubmit={onSubmit}>
@@ -162,8 +162,7 @@ export default function PostDetails() {
                       Comment:
                     </label>
                     <textarea
-                      value={values.comment}
-                      onChange={onChange}
+                      onChange={onChangeComment}
                       className="form-control bg-white border-0"
                       name="comment"
                       rows="5"
@@ -171,7 +170,7 @@ export default function PostDetails() {
                     ></textarea>
                   </div>
                   <div className="col-12">
-                    {errors.length > 0 && <div className={styles.errorDiv}><p>{[...errors]}</p></div>}
+                    {errors.length > 0 && <div className={styles.errorDiv}><p className={styles.errorP}>{[...errors]}</p></div>}
                     <button
                       className="btn btn-secondary w-100 py-3"
                       style={{ marginTop: "30px", borderRadius: "20px" }}

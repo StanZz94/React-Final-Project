@@ -13,6 +13,15 @@ export default function useForm(submitHandler, initialValues) {
     setErrors([]);
   };
 
+  const onChangeComment = (e) => {
+    setValues((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+
+    setErrors([]);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     if(e.target.name && e.target.email){
@@ -26,7 +35,7 @@ export default function useForm(submitHandler, initialValues) {
     
     if(e.target.comment) {
       e.target.comment.value = "";
-      console.log(e.target.comment.value);
+      setValues(initialValues)
       
     }
 
@@ -44,6 +53,7 @@ export default function useForm(submitHandler, initialValues) {
     values,
     errors,
     onChange,
+    onChangeComment,
     onSubmit,
   };
 }
