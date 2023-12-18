@@ -1,24 +1,30 @@
 import * as postServices from "../../services/postService";
 import { useNavigate } from "react-router-dom";
 import {AuthContext} from "../../contexts/authContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styles from "./Styles.module.css"
 
 export default function Create() {
   const { name, lastName} = useContext(AuthContext);
+  const [errors, setErrors]= useState([]);
   const navigate = useNavigate();
 
   const createPostSubmitHandler = async (e) => {
     e.preventDefault();
+    setErrors([]);
     const postData = Object.fromEntries(new FormData(e.currentTarget));
     postData.name = name;
     postData.lastName = lastName;
 
     try {
+      if(postData.title === '' || postData.imageUrl === '' || postData.myPost === ''){
+        throw new Error('All fields are required');
+      }
+
       await postServices.create(postData);
       navigate("/posts");
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      setErrors(error.message);
     }
   };
 
@@ -70,6 +76,7 @@ export default function Create() {
                     placeholder=""
                   ></textarea>
                 </div>
+                {errors.length > 0 && (<div className={styles.errorDiv}><b>{errors}</b></div>)}
                 <div className="col-12">
                   <input
                     className="btn btn-secondary w-100 py-3"

@@ -11,11 +11,11 @@ import styles from "./Styles.module.css"
 
 export default function PostDetails() {
   const navigate = useNavigate();
-  const { isAuthenticated, name, lastName, _id } = useContext(AuthContext);
+  const { isAuthenticated, name, lastName, _id, email} = useContext(AuthContext);
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
-  const commentOwnerName = name;
+  const commentOwnerEmail = email;
   const [ errors, setErrors ] = useState([]);
 
   {/*
@@ -45,7 +45,7 @@ export default function PostDetails() {
 
     setComments((state) => [
       ...state,
-      { ...newComment, owner: { name, lastName } },
+      { ...newComment, owner: { name, lastName, email } },
     ]);
   } catch (error){
     setErrors([error.message]);
@@ -133,9 +133,9 @@ export default function PostDetails() {
           </h5>
         )}
 
-        {comments.map(({ _id, comment, owner: { name, lastName } }) => (
+        {comments.map(({ _id, comment, owner: { name, lastName, email } }) => (
           <div key={_id} className={styles.detailsCommentDiv} >
-            {(commentOwnerName === name || isOwner) && (
+            {(commentOwnerEmail === email || isOwner) && (
             <button onClick={(ev) => deleteCommentHandler(_id)} className={styles.detailsCommentDeleteBtn} >X</button>
             )}
             <div className="ps-3">

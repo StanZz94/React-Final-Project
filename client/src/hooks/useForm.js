@@ -13,41 +13,36 @@ export default function useForm(submitHandler, initialValues) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if(e.target.name && e.target.email){
+    e.target.name.value = "";
+    e.target.lastName.value = "";
+    e.target.email.value = "";
+    e.target.password.value = "";
+    e.target.repeatPassword.value = "";
+    }
 
-    submitHandler(values, (error) => {
-      if (!errors.includes(error.message)) {
-        setErrors([...errors, error.message]);
-      }
-    });
-
-    setValues(initialValues);
-  };
-
-
-  const onSubmitRegister = (e) => {
-    e.preventDefault();
-    submitHandler(values, (error) => {
-      const { password, repeatPassword } = values;
     
+    if(e.target.comment) {
+      e.target.comment.value = "";
+      console.log(e.target.comment.value);
+      
+    }
 
-      if (password !== repeatPassword) {
+    setErrors([]);
 
-        setErrors([...errors, "Password and Repeat password does not match!"]);
-      }
-
+    submitHandler(values, (error) => {
       if (!errors.includes(error.message)) {
         setErrors([...errors, error.message]);
       }
     });
 
-    setValues(initialValues);
   };
+
 
   return {
     values,
     errors,
     onChange,
     onSubmit,
-    onSubmitRegister,
   };
 }

@@ -1332,27 +1332,69 @@
     			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
     		},
     		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-    			email: "admin@abv.bg",
-    			name: "Admin",
-                lastName: 'Admin',
-    			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+    			email: "stanz94@abv.bg",
+    			name: "Stanko",
+                lastName: 'Traykov',
+    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
     		}
     	},
     	sessions: {
     	}
     };
+    https://ceeinfo.bg/wp-content/uploads/2020/10/zemedelie.jpg
     var seedData = {
     	posts: {
+            
+            "36a9cb75-79c2-4ad5-abf2-ba8720c1616d":{
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Pumpkins Trouble !",
+                "imageUrl": "https://blogs.cornell.edu/livegpath/files/2021/02/cucurbit-downy-mildew9x1200.jpg",
+                "myPost": "Guys what wrong whit my plants? From 4 days the are like that :(",
+                "name": "Stanko",
+                "lastName": "Traykov",
+                "_createdOn": 1702902097841,
+                "_id": "36a9cb75-79c2-4ad5-abf2-ba8720c1616d"
+            },
+            "e8a3fe81-a5d7-4312-b462-d2e6a91b4fb1":{
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "We got Invasion! can any one help?",
+                "imageUrl": "https://innspubnet.files.wordpress.com/2018/03/citrus-pests.png?w=714",
+                "myPost": "Our garden is attacked by many bugs. My question is how i can remove them without poisons ?",
+                "name": "Peter",
+                "lastName": "Hristov",
+                "_createdOn": 1702900981191,
+                "_id": "e8a3fe81-a5d7-4312-b462-d2e6a91b4fb1"
+            },
+            "91483680-4974-4fb7-888a-24752ca56d3e":{
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Tip and Tricks for outdoor seeding !",
+                "imageUrl": "https://thefreerangelife.com/wp-content/uploads/planting-seeds-outside.jpg",
+                "myPost": "As a general rule only plant a seed a deep as it is wide. This means that tiny chamomile seeds are sprinkled on the soil’s surface and pressed in, while pumpkin seeds are planted almost an inch into the soil.",
+                "name": "Stanko",
+                "lastName": "Traykov",
+                "_createdOn": 1702902317654,
+                "_id": "91483680-4974-4fb7-888a-24752ca56d3e"
+            },
+            "fd0bf6f3-87bf-4cac-add0-4301cca6f6ff":{
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Tomatoes Problem !",
+                "imageUrl": "https://www.allotment-garden.org/wp-content/uploads/2016/04/Chlorosis-Magnesium-Deficiency-Tomato.jpg",
+                "myPost": "Why are my tomato leaves turning yellow guys? Did i overwater them?",
+                "name": "Peter",
+                "lastName": "Hristov",
+                "_createdOn": 1702901564754,
+                "_id": "fd0bf6f3-87bf-4cac-add0-4301cca6f6ff"
+            },
             "e61970cf-e564-4622-802e-da25c87b6bfd":{
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "title": "Time for harvest is coming!",
-                "imageUrl": "https://agro-sdelka.bg/cache/image/542119d4c0254d5ee0c29e9bb45d1d71/mypicture.jpg",
+                "title": "Harvest time is coming!",
+                "imageUrl": "https://cdn.forumcomm.com/dims4/default/0dc877b/2147483647/strip/true/crop/3888x2592+0+0/resize/840x560!/format/webp/quality/90/?url=https%3A%2F%2Ffcc-cue-exports-brightspot.s3.us-west-2.amazonaws.com%2Fagweek%2Fbinary%2Fcopy%2F71%2F74%2F822a5d3c14696b90c3f53a10ce94%2F1863177-092012cornharvest-binary-4942144.jpg",
                 "myPost": "The time of harvest varies with each crop.\nHarvest produce at the stage for consumption.\nThe expected time for harvest is based on the time of\nplanting or transplanting.",
                 "name": "George",
                 "lastName": "Hooly",
                 "_createdOn": 1702137408370,
                 "_id": "e61970cf-e564-4622-802e-da25c87b6bfd"
-            }
+            },
     	},
     	comments: {
     	},

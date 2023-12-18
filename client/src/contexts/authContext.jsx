@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import * as authService from "../services/authService";
 import Path from "../paths";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +15,7 @@ export const AuthProvider = ({
     
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
+    const [ errors, setErrors] = useState([]);
   
     const loginSubmitHandler = async (values, onError) => {
       try {
@@ -26,6 +27,7 @@ export const AuthProvider = ({
     
         navigate(Path.Home);
       } catch (error) {
+      
         onError(await error);
       }
     };
@@ -33,6 +35,18 @@ export const AuthProvider = ({
     const registerSubmitHandler = async (values, onError) => {
         
       try {
+
+        if(values.name === "" || values.lastName === "") {
+
+          throw new Error("All fields is required !");
+        }
+
+        if (values.password !== values.repeatPassword) {
+    
+          throw new Error("Password and Repeat password does not match!");
+        }
+
+
         const result = await authService.register(values.email, values.password, values.name, values.lastName);
   
         setAuth(result);
@@ -40,7 +54,9 @@ export const AuthProvider = ({
         localStorage.setItem('accessToken', result.accessToken);
     
         navigate(Path.Home);
+
       } catch (error) {
+        
         onError(await error);
       }
     };

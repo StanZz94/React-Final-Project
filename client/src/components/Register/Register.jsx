@@ -16,7 +16,7 @@ export default function Register() {
 
     const { registerSubmitHandler } = useContext(AuthContext);
 
-    const {errors, onChange, onSubmitRegister} = useForm(registerSubmitHandler, {
+    const {errors, onChange, onSubmit} = useForm(registerSubmitHandler, {
         [RegisterFormKeys.Name]: '',
         [RegisterFormKeys.LastName]: '',
         [RegisterFormKeys.Email]: '',
@@ -30,7 +30,7 @@ export default function Register() {
                 <h1 className="display-5">Register</h1>
 
                 <div className="bg-primary h-100 p-5" style={{ maxWidth: "600px", borderRadius: "20px" }}>
-                        <form onSubmit={onSubmitRegister}>
+                        <form onSubmit={onSubmit}>
                             <div className="row g-3">
                                 <div className="col-12">
                                     <label htmlFor="name" className={styles.registerLabel}>Name:</label>

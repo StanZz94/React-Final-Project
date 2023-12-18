@@ -7,6 +7,7 @@ import styles from "./Styles.module.css"
 
 export default function Edit() {
     const { name, lastName} = useContext(AuthContext);
+    const [errors, setErrors ] = useState("")
   const [post, setPost] = useState({
     title:'',
     imageUrl:'',
@@ -30,10 +31,15 @@ export default function Edit() {
     values.lastName = lastName;
 
     try {
+
+      if(values.title === '' || values.imageUrl === '' || values.myPost === ''){
+        throw new Error('All fields are required');
+      }
+
       await postServices.edit(postId ,values);
       navigate("/posts");
     } catch (err) {
-      console.log(err);
+      setErrors(err.message)
     }
 
   };
@@ -99,6 +105,7 @@ export default function Edit() {
                     placeholder=""
                   ></textarea>
                 </div>
+                {errors.length > 0 && (<div className={styles.errorDiv}><b>{errors}</b></div>)}
                 <div className="col-12">
                   <input
                     className="btn btn-secondary w-100 py-3"
